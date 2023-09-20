@@ -1,0 +1,15 @@
+.text-logo-container{
+    color: var(--primary-font-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 3px;
+}
+.text-logo-img{
+    height: 50px;
+}
+.text-logo-title{
+    height: 40px;
+}

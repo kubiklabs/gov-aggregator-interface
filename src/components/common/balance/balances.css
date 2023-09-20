@@ -1,0 +1,47 @@
+.wallet-balance{
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper-para{
+    filter: brightness(0.5);
+}
+.get-balance-button{
+    /* font-size: 0.8rem; */
+    color: var(--secondary-font-color);
+    cursor: pointer;
+    /* background-color: white; */
+    width: 30%;
+    padding: 3px;
+    margin-top: 10px;
+    border-radius: 0px;
+    background-color: var(--accent-color-1);
+}
+.get-balance-button:hover{
+    filter: brightness(0.85);
+}
+
+/* ******************************************************************************************************************************* */
+
+/* Refresh Balances */
+
+.refresh-balance-wrapper{
+    color:var(--accent-color-1);
+    display: flex;
+    /* align-items: center; */
+    align-self: center;
+    transform: scale(0.8);
+    transition: 100ms ease-in-out;
+    cursor: pointer;
+}
+
+.refresh-balance-wrapper:hover{
+    transform: scale(1);
+
+    transition: 100ms ease-in-out;
+}
+
+.refresh-balance-wrapper span{
+    height: 100%;
+}

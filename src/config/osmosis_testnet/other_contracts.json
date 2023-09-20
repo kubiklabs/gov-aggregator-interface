@@ -1,0 +1,18 @@
+{
+  "red_bank": {
+    "contract_addr": "osmo1t0dl6r27phqetfu0geaxrng0u9zn8qgrdwztapt5xr32adtwptaq6vwg36",
+    "contract_code_hash": ""
+  },
+  "mars_adapter": {
+    "contract_addr": "osmo1jfxslamnq8au8yz0ak2v765jthp95d5pm3e05f8yers8pdmqyxvql2uhp5",
+    "contract_code_hash": ""
+  },
+  "splitter": {
+    "contract_addr": "osmo1f9krjhw2umx5fv4rerxfksafljwejrwwej28sslsm0s3qswgst7qhjncmf",
+    "contract_code_hash": ""
+  },
+  "market": {
+    "contract_addr": "osmo1hsmyqfs3gn6lkp2fdprh5783ty0c9tqyhz5fuzfa2sv3hyenkymsyx9rga",
+    "contract_code_hash": ""
+  }
+}

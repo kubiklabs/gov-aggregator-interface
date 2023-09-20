@@ -1,0 +1,18 @@
+{
+  "OSMO": {
+    "denom": "uosmo",
+    "decimals": 6
+  },
+  "OSMOmars": {
+    "denom": "factory/osmo1jfxslamnq8au8yz0ak2v765jthp95d5pm3e05f8yers8pdmqyxvql2uhp5/osmomars",
+    "decimals": 6
+  },
+  "pOSMOmars": {
+    "denom": "factory/osmo1f9krjhw2umx5fv4rerxfksafljwejrwwej28sslsm0s3qswgst7qhjncmf/posmomars",
+    "decimals": 6
+  },
+  "yOSMOmars": {
+    "denom": "factory/osmo1f9krjhw2umx5fv4rerxfksafljwejrwwej28sslsm0s3qswgst7qhjncmf/yosmomars",
+    "decimals": 6
+  }
+}

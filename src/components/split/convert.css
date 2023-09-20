@@ -1,0 +1,129 @@
+.convert-input-wrapper-container {
+  padding: 10px;
+  display: flex;
+  /* border-radius: 15px 15px 0 0; */
+  flex-direction: column;
+  background-color: #111527;
+  color: white;
+}
+.stake-input-convert {
+  margin-bottom: 0;
+}
+
+.convert-rate {
+  margin-left: 0px;
+}
+.convert-value {
+  margin-right: 0px;
+}
+
+.convert-rate-value-wrapper {
+  background-color: #111527;
+  padding: 10px;
+  display: flex;
+  /* border-radius: 0 0 15px 15px; */
+  justify-content: space-between;
+  font-family: "Rajdhani";
+}
+.top-input-label {
+  transform: scale(0.9);
+  position: absolute;
+  top: 18px;
+  left: 10px;
+}
+.bottom-input-label {
+  transform: scale(0.9);
+  position: absolute;
+  top: 18px;
+  left: 10px;
+}
+.exchange-arrow-wrapper {
+  width: fit-content;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+}
+.exchange-icon-rotate {
+  transform: rotate(180deg);
+  transition: 0.5s ease-out;
+}
+
+.sortby-menu {
+  position: absolute;
+  background-color: var(--primary-bg-color);
+  width: 28%;
+  border-radius: 0px;
+  top: 62%;
+  border: 1px solid var(--card-background);
+  z-index: 10;
+}
+.sortby-input {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  color: var(--faded-subtitle-color);
+  position: relative;
+
+}
+.sortby-input:hover {
+  background-color: var(--card-background);
+  border-radius: 0px;
+}
+.sortby-input__active {
+  color: var(--accent-color-1);
+}
+.sortby-menu-To{
+  top: 64% !important;
+}
+
+.iconDiv{
+  display: flex;
+  justify-content: center;
+  margin: -18.5px;
+  z-index: 1;
+  position: relative;
+}
+
+
+.iconContainer{
+  size: 10rem;
+  /* background-color: var(--secondary-bg-color); */
+  background-image: linear-gradient(to top, var(--gradient-left) ,var(--gradient-right));
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(0deg);
+  transition: 0.6s;
+}
+
+.iconContainer:hover{
+  transform: rotate(180deg);
+  transition: 0.6s;
+  cursor: pointer;
+  /* background-color: rgb(0, 0, 0); */
+}
+
+.arrowIcon{
+  color: white;
+  height: 20px;
+  transform: rotate(90deg);
+  opacity: 0.8;
+}
+
+.iconContainer:active{
+  /* background-color: var(--accent-color-1); */
+  transform: rotate(-180deg);
+  transition: 0.6s ease;
+}
+
+@media only screen and (max-width: 540px) {
+  .convert-input-wrapper-container {
+    gap: 10px;
+  }
+}

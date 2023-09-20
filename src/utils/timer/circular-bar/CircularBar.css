@@ -1,0 +1,36 @@
+circle {
+  stroke: white;
+  stroke-width: 5px;
+  fill: none;
+  stroke-dasharray: 628;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); */
+  animation: fillSlow 1s linear forwards;
+}
+.circle-actual {
+  stroke: #f2545b;
+  stroke-width: 6px;
+}
+.circle-actual {
+  position: absolute;
+  top: 0px;
+  left: 75px;
+}
+.bar-inner-wrapper {
+  position: relative;
+  transform: rotate(119deg);
+}
+.bar-inner-wrapper svg {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+svg.circle-cover {
+  position: relative;
+}
+
+@keyframes fillSlow {
+  0% {
+    stroke-dashoffset: 472;
+  }
+}

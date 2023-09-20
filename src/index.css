@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font-family: var(--standard-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-color: var(--primary-bg-color); */
+  /* background-image: url("./assets/img/simple_bg.png"); */
+  background-image: var(--bg-img);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+code {
+  font-family: Manrope, Poppins, Inter, PingFangSC-Regular, "Microsoft YaHei",
+    sans-serif, monospace;
+}

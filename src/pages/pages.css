@@ -1,0 +1,18 @@
+.component-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100%; */
+  width: 100%;
+}
+
+.swap-component-page{
+  position: relative;
+  top: 5%;
+}
+
+@media (max-width: 769px) {
+  .component-page{
+      margin-top: 40px;
+  }
+}

@@ -1,0 +1,52 @@
+.balance-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.balance-logo-wrapper img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 0%;
+}
+
+
+.angle-down{
+  transform: rotate(90deg);
+  transition: all 0.5s;
+}
+
+.angle-right{
+  transition: all 0.5s;
+}
+
+.token-name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.2rem;
+  color: rgb(176, 176, 176);
+}
+
+.balance-section{
+  padding-top: 10px;
+}
+
+.custom-modal{
+  /* top: "50%";
+  left: "50%";
+  right: "auto";
+  bottom: "auto";
+  margin-right: "-50%";
+  transform: "translate(-50%, -50%)"; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+}
