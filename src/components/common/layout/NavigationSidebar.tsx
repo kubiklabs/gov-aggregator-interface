@@ -55,11 +55,7 @@ const NavigationSidebar = () => {
         onClick={() => {
           setActive(!active);
         }}
-      >
-        <div className="menuIcon-icon">
-          <FontAwesomeIcon icon={active ? faXmark : faBars} />
-        </div>
-      </div>
+      ></div>
       <div
         className={active ? "ns-outer-container active" : "ns-outer-container"}
       >

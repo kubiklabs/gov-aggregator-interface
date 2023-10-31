@@ -1,46 +1,23 @@
-import React from "react";
-import NavigationLink from "../buttons/NavigationLink";
 import NavigationButton from "../buttons/NavigationButton";
-import {
-  faDroplet,
-  faRightLeft,
-  faPlug,
-  faArrowsSplitUpAndLeft
-} from "@fortawesome/free-solid-svg-icons";
+import { faFile, faFolderOpen } from "@fortawesome/free-solid-svg-icons";
+
+import DAO_DATA from "../../../config/dao_config.json";
 
 const NavLinks = () => {
   return (
     <div className="navlinks-container">
-      <NavigationButton
-        icon={faPlug}
-        name={"Mars adapter"}
-        pathName="/"
-      />
-      {/* <NavigationButton
-        icon={faMoneyBill}
-        name={"Withdraw"}
-        pathName="/withdraw"
-      />
-      <NavigationButton
-        icon={faAward}
-        name={"Claim rewards"}
-        pathName="/rewards"
-      /> */}
-      <NavigationButton
-        icon={faArrowsSplitUpAndLeft}
-        name={"Split/merge"}
-        pathName="/split"
-      />
-      <NavigationButton
-        icon={faDroplet}
-        name={"Liquidity"}
-        pathName="/stats"
-      />
-      <NavigationButton
-        icon={faRightLeft}
-        name={"Swap"}
-        pathName="/stats"
-      />
+      <NavigationButton icon={faFolderOpen} name={"All DAOs"} pathName="/" />
+      {Object.keys(DAO_DATA).map((id) => {
+        const data = DAO_DATA[id as keyof typeof DAO_DATA];
+
+        return (
+          <NavigationButton
+            icon={faFile}
+            name={`${id}. ${data.name}`}
+            pathName={`/dao/${id}`}
+          />
+        );
+      })}
     </div>
   );
 };

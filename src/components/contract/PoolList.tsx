@@ -1,4 +1,4 @@
-import { Avatar, Box, Flex, Stack, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Grid, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import Card from "../common/DataDisplay/Card";
 import Section from "../common/layout/Section";
@@ -41,10 +41,16 @@ const DATA = [
 const PoolList = () => {
   return (
     <Section heading="Community Pools">
-      <Flex gap={"25px"} maxW={"100%"} overflowX={"auto"}>
+      <Grid
+        gap={"20px"}
+        // justifyContent={"space-evenly"}
+        // gridAutoFlow={"column"}
+        gridTemplateColumns={"repeat(auto-fit, minmax(300px, 1fr))"}
+      >
+        {" "}
         {DATA.map((item) => {
           return (
-            <Card minW={"450px"} width={"500px"}>
+            <Card minW={"250px"}>
               <Stack>
                 <Box height={"200px"} width={"100%"} overflow={"hidden"}>
                   <Avatar size={"3xl"} />
@@ -70,7 +76,7 @@ const PoolList = () => {
             </Card>
           );
         })}
-      </Flex>
+      </Grid>{" "}
     </Section>
   );
 };

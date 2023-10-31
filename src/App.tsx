@@ -22,6 +22,7 @@ import "./App.css";
 import ContractInfo from "./pages/contractinfo";
 import NewProposal from "./pages/newproposal";
 import ProposalDetails from "./pages/proposaldetails/ProposalDetails";
+import DaoList from "./pages/daolists/DaoList";
 
 Modal.setAppElement("#root");
 
@@ -39,9 +40,9 @@ function App() {
           <WalletSection />
           <div className="component-container">
             <Routes>
-              <Route path="/" element={<Stake />} />
+              <Route path="/" element={<DaoList />} />
               <Route path="/dao/:daoId" element={<ContractInfo />} />
-              <Route path="/split" element={<Split />} />
+              {/* <Route path="/split" element={<Split />} /> */}
               <Route
                 path="/dao/:daoId/proposal/new"
                 element={<NewProposal />}

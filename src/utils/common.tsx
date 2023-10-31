@@ -92,3 +92,6 @@ export const getCommonVoteOption = (vote: string) => {
   const commonVoteMap = { ...neutronVoteOptionMap };
   return commonVoteMap[vote as keyof typeof commonVoteMap];
 };
+
+export const getShortHandAddress = (address: string) =>
+  address.substr(0, 8) + "..." + address.substr(address.length - 3, 3);

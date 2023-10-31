@@ -16,72 +16,6 @@ import ColorTag from "../common/DataDisplay/ColorTag";
 import SubtitleText from "../common/DataDisplay/SubtitleText";
 import { Link, useNavigate } from "react-router-dom";
 
-const DATA: any[] = [
-  {
-    id: "1",
-    title: "Stake $DAO Tokens",
-    votingEndTime: "09/08 : 21:14",
-    status: "Executed",
-    tags: ["Software Update", "Cosmos", "Cosmos", "Cosmos"],
-  },
-  {
-    id: "2",
-
-    title: "Stake $DAO Tokens",
-    votingEndTime: "09/08 : 21:14",
-    status: "Executed",
-    tags: ["Software Update", "Cosmos", "Cosmos", "Cosmos"],
-  },
-  {
-    id: "3",
-
-    title: "Stake $DAO Tokens",
-    votingEndTime: "09/08 : 21:14",
-    status: "Executed",
-    tags: ["Software Update", "Cosmos", "Cosmos", "Cosmos"],
-  },
-  {
-    id: "3",
-
-    title: "Stake $DAO Tokens",
-    votingEndTime: "09/08 : 21:14",
-    status: "Executed",
-    tags: ["Software Update", "Cosmos", "Cosmos", "Cosmos"],
-  },
-  {
-    id: "4",
-
-    title: "Stake $DAO Tokens",
-    votingEndTime: "09/08 : 21:14",
-    status: "Executed",
-    tags: ["Software Update", "Cosmos", "Cosmos", "Cosmos"],
-  },
-  {
-    id: "5",
-
-    title: "Stake $DAO Tokens",
-    votingEndTime: "09/08 : 21:14",
-    status: "Executed",
-    tags: ["Software Update", "Cosmos", "Cosmos", "Cosmos"],
-  },
-  {
-    id: "6",
-
-    title: "Stake $DAO Tokens",
-    votingEndTime: "09/08 : 21:14",
-    status: "Executed",
-    tags: ["Software Update", "Cosmos", "Cosmos", "Cosmos"],
-  },
-  {
-    id: "7",
-
-    title: "Stake $DAO Tokens",
-    votingEndTime: "09/08 : 21:14",
-    status: "Executed",
-    tags: ["Software Update", "Cosmos", "Cosmos", "Cosmos"],
-  },
-];
-
 export interface ILpCardProps {
   id: string;
   title: string;
@@ -118,7 +52,7 @@ const ProposalList = ({ proposals }: { proposals: ILpCardProps[] }) => {
                 navigate(`${pathName}/proposal/${proposal.id}`);
               }}
             >
-              <Card maWidth={"300px"}>
+              <Card cursor={"pointer"} maWidth={"300px"}>
                 <Stack>
                   <Box maxH={"250px"} overflow={"hidden"}>
                     <Avatar size={"3xl"} />
