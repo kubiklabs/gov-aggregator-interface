@@ -1,5 +1,6 @@
 import { Decimal } from "decimal.js";
 import { networkConstants } from "./constants";
+import { neutronVoteOptionMap } from "./constants";
 
 // The number set here is an arbitrary number.
 Decimal.set({ toExpPos: 50 });
@@ -52,8 +53,42 @@ export function sleep(seconds: number) {
 export const TxnLinkComp = (hash: string) => (
   <div>
     <span>Transaction hash </span>
-    <a style={{ color: "black" }} href={`${networkConstants['InjectiveTestnet'].mintscanPrefix}${hash}`} target="_blank">
+    <a
+      style={{ color: "black" }}
+      href={`${networkConstants["InjectiveTestnet"].mintscanPrefix}${hash}`}
+      target="_blank"
+    >
       {hash}
     </a>
   </div>
 );
+export const getNeutronOption = (option: string) => {
+  switch (option) {
+    case "YES":
+      return "yes";
+    case "NO":
+      return "no";
+    case "ABSTAIN":
+      return "abstain";
+    default:
+      break;
+  }
+};
+
+export const parseNanosecondTimeString = (time: string) => {
+  const utcTime = new Date(Number(time) / 1000000);
+  const localeStringFormat = utcTime.toLocaleString();
+  const localeTimeOnly = utcTime.toLocaleTimeString();
+  const localeDateOnly = utcTime.toDateString();
+  return {
+    utcTime,
+    localeDateOnly,
+    localeStringFormat,
+    localeTimeOnly,
+  };
+};
+
+export const getCommonVoteOption = (vote: string) => {
+  const commonVoteMap = { ...neutronVoteOptionMap };
+  return commonVoteMap[vote as keyof typeof commonVoteMap];
+};

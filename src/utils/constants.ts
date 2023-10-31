@@ -1,4 +1,3 @@
-
 export const networkConstants: Record<string, any> = {
   JunoMainnet: {
     baseDenom: "uosmo",
@@ -21,34 +20,35 @@ export const networkConstants: Record<string, any> = {
     },
 
     VALIDATORS: {
-      "junovaloper1dru5985k4n5q369rxeqfdsjl8ezutch8mc6nx9": "Highlander | ChainTools",
-      "junovaloper196ax4vc0lwpxndu9dyhvca7jhxp70rmcqcnylw": "SG-1",
-      "junovaloper194v8uwee2fvs2s8fa5k7j03ktwc87h5ym39jfv": "Disperze",
-      "junovaloper10wxn2lv29yqnw2uf4jf439kwy5ef00qdelfp7r": "kingnodes 👑",
-      "junovaloper1wd02ktcvpananlvd9u6jm3x3ap3vmw59jv9vez": "Lavender.Five Nodes 🐝",
-      "junovaloper193xl2tqh2tjkld2zv49ku5s44ee4qmgr65jcep": "WhisperNOde",
-      "junovaloper1xwazl8ftks4gn00y5x3c47auquc62ssuvynw64": "jabbey",
-      "junovaloper17skjxhtt54prnpxcs7a5rv9znlldpe5k3x99gp": "DEUS LABS",
-      "junovaloper10y7ucn6jhjtakwchgpw32y0tgaku6yn255z7gm": "Golden Ratio Staking",
-      "junovaloper1gp957czryfgyvxwn3tfnyy2f0t9g2p4pvzc6k3": "polkachu.com",
-      "junovaloper1zxx8j75ngm8m38v9l5wreaavwnsuun7gcq5cu8": "CommunityStaking",
-      "junovaloper1hx9yj7qgnp8zhkrqfanvz74mcsg9d8eyskvsxg": "Stakely.io",
-      "junovaloper1gr56uqre7dsqjkknssne7rc9wunsk08gmh3c7h": "Don Cryptonium",
-      "junovaloper16s96n9k9zztdgjy8q4qcxp4hn7ww98qk0du5jq": "Oni ⛩️",
+      junovaloper1dru5985k4n5q369rxeqfdsjl8ezutch8mc6nx9:
+        "Highlander | ChainTools",
+      junovaloper196ax4vc0lwpxndu9dyhvca7jhxp70rmcqcnylw: "SG-1",
+      junovaloper194v8uwee2fvs2s8fa5k7j03ktwc87h5ym39jfv: "Disperze",
+      junovaloper10wxn2lv29yqnw2uf4jf439kwy5ef00qdelfp7r: "kingnodes 👑",
+      junovaloper1wd02ktcvpananlvd9u6jm3x3ap3vmw59jv9vez:
+        "Lavender.Five Nodes 🐝",
+      junovaloper193xl2tqh2tjkld2zv49ku5s44ee4qmgr65jcep: "WhisperNOde",
+      junovaloper1xwazl8ftks4gn00y5x3c47auquc62ssuvynw64: "jabbey",
+      junovaloper17skjxhtt54prnpxcs7a5rv9znlldpe5k3x99gp: "DEUS LABS",
+      junovaloper10y7ucn6jhjtakwchgpw32y0tgaku6yn255z7gm:
+        "Golden Ratio Staking",
+      junovaloper1gp957czryfgyvxwn3tfnyy2f0t9g2p4pvzc6k3: "polkachu.com",
+      junovaloper1zxx8j75ngm8m38v9l5wreaavwnsuun7gcq5cu8: "CommunityStaking",
+      junovaloper1hx9yj7qgnp8zhkrqfanvz74mcsg9d8eyskvsxg: "Stakely.io",
+      junovaloper1gr56uqre7dsqjkknssne7rc9wunsk08gmh3c7h: "Don Cryptonium",
+      junovaloper16s96n9k9zztdgjy8q4qcxp4hn7ww98qk0du5jq: "Oni ⛩️",
     },
 
     denomConst: {
-      tokenSymbol: 'JUNO',
-      seTokenSymbol: 'seJUNO',
-      bTokenSymbol: 'bJUNO',
-      tokenDenom: 'ujuno',
-      seTokenDenom: 'sejuno',
-      bTokenDenom: 'bjuno'
-    }
+      tokenSymbol: "JUNO",
+      seTokenSymbol: "seJUNO",
+      bTokenSymbol: "bJUNO",
+      tokenDenom: "ujuno",
+      seTokenDenom: "sejuno",
+      bTokenDenom: "bjuno",
+    },
   },
-  JunoTestnet: {
-
-  },
+  JunoTestnet: {},
   OsmosisTestnet: {
     baseDenom: "uosmo",
     baseSymbol: "OSMO",
@@ -70,24 +70,25 @@ export const networkConstants: Record<string, any> = {
     },
 
     VALIDATORS: {
-      "junovaloper1dru5985k4n5q369rxeqfdsjl8ezutch8mc6nx9": "Highlander | ChainTools",
-      "junovaloper196ax4vc0lwpxndu9dyhvca7jhxp70rmcqcnylw": "SG-1",
-      "junovaloper194v8uwee2fvs2s8fa5k7j03ktwc87h5ym39jfv": "Disperze",
-      "junovaloper10wxn2lv29yqnw2uf4jf439kwy5ef00qdelfp7r": "kingnodes 👑",
+      junovaloper1dru5985k4n5q369rxeqfdsjl8ezutch8mc6nx9:
+        "Highlander | ChainTools",
+      junovaloper196ax4vc0lwpxndu9dyhvca7jhxp70rmcqcnylw: "SG-1",
+      junovaloper194v8uwee2fvs2s8fa5k7j03ktwc87h5ym39jfv: "Disperze",
+      junovaloper10wxn2lv29yqnw2uf4jf439kwy5ef00qdelfp7r: "kingnodes 👑",
     },
 
     denomConst: {
-      tokenSymbol: 'OSMO',
-      ybTokenSymbol: 'OSMOmars',
-      pTokenSymbol: 'pOSMOmars',
-      yTokenSymbol: 'yOSMOmars',
-      bTokenSymbol: 'bOSMO',
-      tokenDenom: 'uosmo',
-      ybTokenDenom: 'osmomars',
-      pTokenDenom: 'posmomars',
-      yTokenDenom: 'yosmomars',
-      bTokenDenom: 'bosmo'
-    }
+      tokenSymbol: "OSMO",
+      ybTokenSymbol: "OSMOmars",
+      pTokenSymbol: "pOSMOmars",
+      yTokenSymbol: "yOSMOmars",
+      bTokenSymbol: "bOSMO",
+      tokenDenom: "uosmo",
+      ybTokenDenom: "osmomars",
+      pTokenDenom: "posmomars",
+      yTokenDenom: "yosmomars",
+      bTokenDenom: "bosmo",
+    },
   },
   InjectiveTestnet: {
     baseDenom: "inj",
@@ -110,19 +111,19 @@ export const networkConstants: Record<string, any> = {
     },
 
     VALIDATORS: {
-      "injvaloper16nd8yqxe9p6ggnrz58qr7dxn5y2834yeytmczf": "Validator1",
-      "injvaloper1cq6mvxqp978f6lxrh5s6c35ddr2slcj9h7tqng": "Validator2",
-      "injvaloper1kk523rsm9pey740cx4plalp40009ncs0wrchfe": "Validator3",
+      injvaloper16nd8yqxe9p6ggnrz58qr7dxn5y2834yeytmczf: "Validator1",
+      injvaloper1cq6mvxqp978f6lxrh5s6c35ddr2slcj9h7tqng: "Validator2",
+      injvaloper1kk523rsm9pey740cx4plalp40009ncs0wrchfe: "Validator3",
     },
 
     denomConst: {
-      tokenSymbol: 'INJ',
-      seTokenSymbol: 'seINJ',
-      bTokenSymbol: 'bINJ',
-      tokenDenom: 'inj',
-      seTokenDenom: 'seinj',
-      bTokenDenom: 'binj'
-    }
+      tokenSymbol: "INJ",
+      seTokenSymbol: "seINJ",
+      bTokenSymbol: "bINJ",
+      tokenDenom: "inj",
+      seTokenDenom: "seinj",
+      bTokenDenom: "binj",
+    },
   },
   ArchwayTestnet: {
     baseDenom: "uconst",
@@ -145,18 +146,82 @@ export const networkConstants: Record<string, any> = {
     },
 
     VALIDATORS: {
-      "archwayvaloper1us7q40hurgx2k7zjmxe5pwuq0ffgstjlzcdncn": "bodong-moniker",
-      "archwayvaloper1wcynzzk7fj2fsgz2dmk3qr0hk0msezxs48jhcd": "pro-nodes75",
-      "archwayvaloper1sk23ewl2kzfu9mfh3sdh6gpm9xkq56m7tjnl25": "archway",
+      archwayvaloper1us7q40hurgx2k7zjmxe5pwuq0ffgstjlzcdncn: "bodong-moniker",
+      archwayvaloper1wcynzzk7fj2fsgz2dmk3qr0hk0msezxs48jhcd: "pro-nodes75",
+      archwayvaloper1sk23ewl2kzfu9mfh3sdh6gpm9xkq56m7tjnl25: "archway",
     },
 
     denomConst: {
-      tokenSymbol: 'CONST',
-      seTokenSymbol: 'seCONST',
-      bTokenSymbol: 'bCONST',
-      tokenDenom: 'uconst',
-      seTokenDenom: 'seconst',
-      bTokenDenom: 'bconst'
-    }
-  }
-}
+      tokenSymbol: "CONST",
+      seTokenSymbol: "seCONST",
+      bTokenSymbol: "bCONST",
+      tokenDenom: "uconst",
+      seTokenDenom: "seconst",
+      bTokenDenom: "bconst",
+    },
+  },
+};
+export const neutronStatusMap = {
+  /// The proposal is open for voting.
+  open: {
+    pretty: "Vote Now",
+    bg: "#BC3D70",
+  },
+  /// The proposal has been rejected.
+  rejected: {
+    pretty: "Rejected",
+    bg: "#993A31",
+  },
+  /// The proposal has been passed but has not been executed.
+  passed: {
+    pretty: "Passed",
+    bg: "#347F41",
+  },
+  /// The proposal has been passed and executed.
+  executed: {
+    pretty: "Executed",
+    bg: "#029970",
+  },
+  /// The proposal has failed or expired and has been closed. A
+  /// proposal deposit refund has been issued if applicable.
+  closed: {
+    pretty: "Closed",
+    bg: "gray",
+  },
+  /// The proposal's execution failed.
+  execution_failed: {
+    pretty: "Failed",
+    bg: "#CE3747",
+  },
+};
+
+export const tagColorMap = {
+  Cosmos: "#472776",
+  "Software Update": "rgba(255, 139, 74, 0.80)",
+  Stride: "#B90064",
+  Neutron: "#2987E1",
+};
+
+export const colorVoteMap = {
+  YES: {
+    color: "#409F4E",
+    bg: "#409F4E14",
+  },
+  NO: {
+    color: "#CE3747",
+    bg: "#BE483A14",
+  },
+  ABSTAIN: {
+    color: "#B3876C",
+    bg: "#C8886414",
+  },
+  VETO: {
+    color: "#ADACAF",
+    bg: "#ADACAF14",
+  },
+};
+export const neutronVoteOptionMap = {
+  yes: "YES",
+  no: "NO",
+  abstain: "ABSTAIN",
+};

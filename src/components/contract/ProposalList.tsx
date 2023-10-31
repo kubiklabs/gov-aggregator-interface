@@ -14,7 +14,7 @@ import {
 import Card from "../common/DataDisplay/Card";
 import ColorTag from "../common/DataDisplay/ColorTag";
 import SubtitleText from "../common/DataDisplay/SubtitleText";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const DATA: any[] = [
   {
@@ -82,14 +82,26 @@ const DATA: any[] = [
   },
 ];
 
-const ProposalList = () => {
+export interface ILpCardProps {
+  id: string;
+  title: string;
+  endDate: string;
+  endTime: string;
+  tags: Array<string>;
+  status: string;
+}
+
+const ProposalList = ({ proposals }: { proposals: ILpCardProps[] }) => {
+  const pathName = window.location.pathname;
+  const navigate = useNavigate();
+
   return (
     <Section heading="Proposals">
       <Link
         style={{
           width: "fit-content",
         }}
-        to={"/proposal/new"}
+        to={`${pathName}/proposal/new`}
       >
         <Button width={"200px"}>New Proposal</Button>
       </Link>
@@ -99,9 +111,13 @@ const ProposalList = () => {
         // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(350px, 1fr))"}
       >
-        {DATA.map((proposal) => {
+        {proposals.map((proposal) => {
           return (
-            <GridItem>
+            <GridItem
+              onClick={() => {
+                navigate(`${pathName}/proposal/${proposal.id}`);
+              }}
+            >
               <Card maWidth={"300px"}>
                 <Stack>
                   <Box maxH={"250px"} overflow={"hidden"}>
@@ -110,9 +126,11 @@ const ProposalList = () => {
                   <Stack padding={"35px"}>
                     <Flex justifyContent={"space-between"}>
                       <Stack>
-                        <Text>{proposal.title}</Text>
+                        <Text>
+                          #{proposal.id} {proposal.title}
+                        </Text>
                         <SubtitleText>
-                          voting ends on {proposal.votingEndTime}
+                          voting ends on {proposal.endDate} {proposal.endTime}
                         </SubtitleText>
                       </Stack>
                       <Button

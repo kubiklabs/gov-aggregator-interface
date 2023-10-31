@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import logo from "../../../assets/img/fixedFiLogoColor.png";
+import logo from "../../../assets/img/kubik-logo.png";
 import "./LoadingModal.css";
 import LoaderContent from "./LoaderContent";
 
@@ -15,6 +15,7 @@ const LoadingModal = ({
 
   return (
     <Modal
+      ariaHideApp={false}
       isOpen={isOpen}
       // onRequestClose={closeModal}
       contentLabel="Txn"

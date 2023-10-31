@@ -24,6 +24,7 @@
     "@types/react-router-dom": "^5.3.3",
     "decimal.js": "^10.4.2",
     "framer-motion": "^10.16.4",
+    "marked": "^9.1.4",
     "osmojs": "^15.2.1",
     "react": "^18.2.0",
     "react-detect-click-outside": "^1.1.7",

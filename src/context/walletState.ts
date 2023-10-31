@@ -12,6 +12,7 @@ export const walletState = atom<{
   shortAddress: string | undefined;
   balance: Coin | undefined;
   nickName: string | undefined;
+  isLoggedIn: boolean;
 }>({
   key: "walletState",
   default: {
@@ -23,6 +24,7 @@ export const walletState = atom<{
       denom: "",
     },
     nickName: undefined,
+    isLoggedIn: false,
   },
   dangerouslyAllowMutability: true,
 });
