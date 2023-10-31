@@ -1,5 +1,5 @@
 .right-pane-container {
-  /* max-width: 480px; */
+  max-width: 480px;
   background: var(--primary-bg-color);
   /* padding: 10px 20px; */
   color: var(--primary-font-color);

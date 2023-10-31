@@ -33,6 +33,7 @@ export const useDisconnetWallet = () => {
       shortAddress: undefined,
       balance: undefined,
       nickName: undefined,
+      isLoggedIn: false,
     });
     Success("Wallet Disconnected!");
   };
@@ -78,7 +79,9 @@ export const useConnectWallet = () => {
 
       const balance = await wasmChainClient.getBalance(address, baseDenom);
 
-      const walletName = await (window as any).keplr.getKey(chainInfo.getChainId());
+      const walletName = await (window as any).keplr.getKey(
+        chainInfo.getChainId()
+      );
 
       // toast.update(tid, {
       //   type: "success",
@@ -94,10 +97,11 @@ export const useConnectWallet = () => {
           address.substr(0, 8) + "..." + address.substr(address.length - 3, 3),
         balance: {
           amount: coinConvert(balance.amount, 6, "human"),
-          denom: balance.denom
+          denom: balance.denom,
         },
         client: wasmChainClient,
         nickName: walletName.name,
+        isLoggedIn: true,
       });
       sessionStorage.setItem("isLoggedIn", "true");
 

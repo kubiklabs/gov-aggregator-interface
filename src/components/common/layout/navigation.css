@@ -16,9 +16,9 @@
 .ns-outer-container {
   left: 0;
   height: 100vh;
-  /* background-color: var(--primary-bg-color);   */
+  background-color: var(--primary-bg-color);
   padding: 0 20px;
-  width: 480px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
