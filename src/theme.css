@@ -59,7 +59,7 @@
   --accent-color-1:#9CE451;
   --percent-input: #4CB3A0; */
 
-  --primary-bg-color: #1c3034;
+  --primary-bg-color: #05010d;
   --secondary-bg-color: #164242;
   --accent-color-1: #09a758;
   --card-background: #49596a;
@@ -71,15 +71,15 @@
   --accent-color-2: #da6e4f;
   --accent-color-3: #962f22;
   --accent-color-4: #b1d6f9;
-  --input-component:black;
+  --input-component: black;
   --small-font-size: 1rem;
   --normal-font-size: 1.2rem;
   --large-font-size: 1.5rem;
   --gigantic-font-size: 3rem;
   --standard-radius: 0px;
   --large-radius: 0px;
-  --standard-font-family: "Rajdhani", Manrope, Poppins, Inter,
-    PingFangSC-Regular, "Microsoft YaHei", sans-serif;
+  --standard-font-family: "Alata", sans-serif;
+
   --primary-font-color: white;
   --secondary-font-color: black;
   /* --faded-subtitle-color:rgb(164, 164, 164); */
@@ -88,14 +88,14 @@
 
 .lighttheme {
   /* theme final light */
-  --primary-bg-color: #E9D4C4;
-  --secondary-bg-color: #F1EFFE;
-  --input-component:#F1F1E6;
-  --card-background: #F0EDDF;
-  --gradient-left: #D3C2AD;
-  --gradient-right: #EFEBDC;
+  --primary-bg-color: #e9d4c4;
+  --secondary-bg-color: #f1effe;
+  --input-component: #f1f1e6;
+  --card-background: #f0eddf;
+  --gradient-left: #d3c2ad;
+  --gradient-right: #efebdc;
   --bg-img: url(./assets/img/Fixedfi_bg.png);
-  --accent-color-1: #D3C2AD;
+  --accent-color-1: #d3c2ad;
   --percent-input: #c7defa;
   --multicolor-left: #a500a8;
   --multicolor-mid: #6046d2;

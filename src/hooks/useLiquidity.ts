@@ -38,8 +38,8 @@ export const useLiquidity = () => {
         break;
       }
     }
-  }
-  
+  };
+
   const checkTxnClient = async () => {
     while (true) {
       if (client === undefined) {
@@ -48,8 +48,8 @@ export const useLiquidity = () => {
         break;
       }
     }
-  }
-  
+  };
+
   const checkAddressClient = async () => {
     while (true) {
       if (address === undefined) {
@@ -58,7 +58,7 @@ export const useLiquidity = () => {
         break;
       }
     }
-  }
+  };
 
   /*
    * Returns info of given pool using pool contract
@@ -73,7 +73,7 @@ export const useLiquidity = () => {
     );
     try {
       const cumulativePrices = await pairQueryClient.cumulativePrices();
-      const share = await pairQueryClient.share({amount: "35355"});
+      const share = await pairQueryClient.share({ amount: "35355" });
       const poolResponse = await pairQueryClient.pool();
 
       return poolResponse;
@@ -89,10 +89,10 @@ export const useLiquidity = () => {
   const getPoolTotalAmount = async (
     poolName: string
   ): Promise<{
-    firstTokenAmount: string,
-    secondTokenAmount: string,
-    totalAmount: string,
-    lpTokenAmount: string,
+    firstTokenAmount: string;
+    secondTokenAmount: string;
+    totalAmount: string;
+    lpTokenAmount: string;
   }> => {
     // console.log("by getpooltotalamount", poolName);
     await checkQueryClient();
@@ -104,25 +104,40 @@ export const useLiquidity = () => {
     const { lpAddress, lpCodeHash } = config.getPoolsLPAsset(poolName);
     try {
       const poolResponse = await pairQueryClient.pool();
-      
-      const firstTokenAmount  = coinConvert(poolResponse.assets[0].amount, 6, "human");
-      const secondTokenAmount = coinConvert(poolResponse.assets[1].amount, 6, "human");
-      const lpTokenAmount = await token.getSupplyByAddress(lpAddress, lpCodeHash) as string;
+
+      const firstTokenAmount = coinConvert(
+        poolResponse.assets[0].amount,
+        6,
+        "human"
+      );
+      const secondTokenAmount = coinConvert(
+        poolResponse.assets[1].amount,
+        6,
+        "human"
+      );
+      const lpTokenAmount = (await token.getSupplyByAddress(
+        lpAddress,
+        lpCodeHash
+      )) as string;
 
       let totalAmount = 0;
       try {
-        const firstTokenPrice = parseFloat(await config.getAssetPrice(
-          config.getPoolsFirstAsset(poolName).display_denom
-        ));
-        totalAmount += (parseFloat(firstTokenAmount)*firstTokenPrice);
+        const firstTokenPrice = parseFloat(
+          await config.getAssetPrice(
+            config.getPoolsFirstAsset(poolName).display_denom
+          )
+        );
+        totalAmount += parseFloat(firstTokenAmount) * firstTokenPrice;
       } catch (error) {
         console.debug(error);
       }
       try {
-        const secondTokenPrice = parseFloat(await config.getAssetPrice(
-          config.getPoolsSecondAsset(poolName).display_denom
-        ));
-        totalAmount += (parseFloat(secondTokenAmount)*secondTokenPrice);
+        const secondTokenPrice = parseFloat(
+          await config.getAssetPrice(
+            config.getPoolsSecondAsset(poolName).display_denom
+          )
+        );
+        totalAmount += parseFloat(secondTokenAmount) * secondTokenPrice;
       } catch (error) {
         console.debug(error);
       }
@@ -130,7 +145,7 @@ export const useLiquidity = () => {
       return {
         firstTokenAmount: firstTokenAmount,
         secondTokenAmount: secondTokenAmount,
-        totalAmount: (totalAmount.toFixed(4)),
+        totalAmount: totalAmount.toFixed(4),
         lpTokenAmount: lpTokenAmount,
       };
     } catch (error) {
@@ -148,13 +163,13 @@ export const useLiquidity = () => {
    * Returns user's amount in given pool using pool contract
    */
   const getPoolUserAmount = async (
-    poolName: string,
+    poolName: string
   ): Promise<{
-    firstTokenAmountUser: string,
-    secondTokenAmountUser: string,
-    userAmount: string,
-    lpBalance: string,
-    lpSupply: string,
+    firstTokenAmountUser: string;
+    secondTokenAmountUser: string;
+    userAmount: string;
+    lpBalance: string;
+    lpSupply: string;
   }> => {
     // console.log("by getpooluseramount", poolName);
     await checkQueryClient();
@@ -163,27 +178,30 @@ export const useLiquidity = () => {
       const { lpAddress, lpCodeHash } = config.getPoolsLPAsset(poolName);
 
       const lpBalance = parseFloat(
-        await token.getBalanceByAddress(lpAddress, lpCodeHash) as string
+        (await token.getBalanceByAddress(lpAddress, lpCodeHash)) as string
       );
       const lpSupply = parseFloat(
-        await token.getSupplyByAddress(lpAddress, lpCodeHash) as string
+        (await token.getSupplyByAddress(lpAddress, lpCodeHash)) as string
       );
-      const {userLpBonded} = await getPoolUserBonded(poolName);
+      const { userLpBonded } = await getPoolUserBonded(poolName);
 
-      const lpRatio = (lpBalance+Number(userLpBonded))/lpSupply;
-      const { firstTokenAmount, secondTokenAmount, totalAmount } = await getPoolTotalAmount(poolName);
+      const lpRatio = (lpBalance + Number(userLpBonded)) / lpSupply;
+      const { firstTokenAmount, secondTokenAmount, totalAmount } =
+        await getPoolTotalAmount(poolName);
 
       // add the bonded LP to wallet balance LP if non-zero
       let totalHolding = Number(totalAmount);
-      const userAmount = lpRatio*totalHolding;
+      const userAmount = lpRatio * totalHolding;
 
-      const firstTokenAmountUser = lpRatio*parseFloat(firstTokenAmount as string);
-      const secondTokenAmountUser = lpRatio*parseFloat(secondTokenAmount as string);
+      const firstTokenAmountUser =
+        lpRatio * parseFloat(firstTokenAmount as string);
+      const secondTokenAmountUser =
+        lpRatio * parseFloat(secondTokenAmount as string);
 
       return {
         firstTokenAmountUser: firstTokenAmountUser.toFixed(4),
         secondTokenAmountUser: secondTokenAmountUser.toFixed(4),
-        userAmount: (userAmount.toFixed(4)),
+        userAmount: userAmount.toFixed(4),
         lpBalance: lpBalance.toFixed(4),
         lpSupply: lpSupply.toFixed(4),
       };
@@ -194,7 +212,7 @@ export const useLiquidity = () => {
         secondTokenAmountUser: "0",
         userAmount: "0",
         lpBalance: "0",
-        lpSupply: "0"
+        lpSupply: "0",
       };
     }
   };
@@ -263,7 +281,7 @@ export const useLiquidity = () => {
     token1Amount: string,
     token2Amount: string,
     slippagePercentage: string,
-    gasValue?: string | undefined,
+    gasValue?: string | undefined
   ) => {
     await checkTxnClient();
     const tid = "Request Rejected";
@@ -311,7 +329,7 @@ export const useLiquidity = () => {
         {
           userAddress: address as string,
           customFees: {
-            gas: (gasValue !== undefined)? gasValue: defaultGas.add_liquidity,
+            gas: gasValue !== undefined ? gasValue : defaultGas.add_liquidity,
             amount: [],
           },
           transferAmount: transferAmounts,
@@ -339,13 +357,16 @@ export const useLiquidity = () => {
           slippageTolerance: slippagePercentage,
         }
       );
-      if(addLiquidityResponse.code || addLiquidityResponse===undefined){
-          toaster.Error("Failed to add liquidity.");
-          toaster.Error((addLiquidityResponse.rawLog).substr(0,100) + "...");
-        }
-      else toast.success(`Added ${token1Amount} ${firstToken.display_denom} and ${token2Amount} ${secondToken.display_denom} to the ${poolName} pool`,{
-        type: "success",
-      });
+      if (addLiquidityResponse.code || addLiquidityResponse === undefined) {
+        toaster.Error("Failed to add liquidity.");
+        toaster.Error(addLiquidityResponse.rawLog.substr(0, 100) + "...");
+      } else
+        toast.success(
+          `Added ${token1Amount} ${firstToken.display_denom} and ${token2Amount} ${secondToken.display_denom} to the ${poolName} pool`,
+          {
+            type: "success",
+          }
+        );
       // console.log("addliq res", addLiquidityResponse);
       return addLiquidityResponse;
     } catch (error) {
@@ -371,7 +392,7 @@ export const useLiquidity = () => {
   const doRemoveLiquidity = async (
     poolName: string,
     lpTokenAmount: string,
-    gasValue?: string | undefined,
+    gasValue?: string | undefined
   ) => {
     await checkTxnClient();
     const tid = "Request Rejected";
@@ -385,18 +406,24 @@ export const useLiquidity = () => {
     const secondToken = config.getPoolsSecondAsset(poolName);
 
     const totalLiq = await getPoolTotalAmount(poolName);
-    const firstTokenRatio = parseFloat(totalLiq.firstTokenAmount)/parseFloat(totalLiq.lpTokenAmount);
-    const secondTokenRatio = parseFloat(totalLiq.secondTokenAmount)/parseFloat(totalLiq.lpTokenAmount);
+    const firstTokenRatio =
+      parseFloat(totalLiq.firstTokenAmount) /
+      parseFloat(totalLiq.lpTokenAmount);
+    const secondTokenRatio =
+      parseFloat(totalLiq.secondTokenAmount) /
+      parseFloat(totalLiq.lpTokenAmount);
 
-    const firstTokenAmount = firstTokenRatio*parseFloat(lpTokenAmount);
-    const secondTokenAmount = secondTokenRatio*parseFloat(lpTokenAmount);
+    const firstTokenAmount = firstTokenRatio * parseFloat(lpTokenAmount);
+    const secondTokenAmount = secondTokenRatio * parseFloat(lpTokenAmount);
 
     const { lpAddress, lpCodeHash } = config.getPoolsLPAsset(poolName);
     const withdrawMsg = {
       withdraw_liquidity: {
         assets: [
           {
-            amount: (parseInt(coinConvert(firstTokenAmount, 6, "machine"))-2).toString(),
+            amount: (
+              parseInt(coinConvert(firstTokenAmount, 6, "machine")) - 2
+            ).toString(),
             info: {
               contract_addr: firstToken.contract_addr,
               contract_code_hash: firstToken.contract_code_hash,
@@ -404,7 +431,9 @@ export const useLiquidity = () => {
             },
           },
           {
-            amount: (parseInt(coinConvert(secondTokenAmount, 6, "machine"))-2).toString(),
+            amount: (
+              parseInt(coinConvert(secondTokenAmount, 6, "machine")) - 2
+            ).toString(),
             info: {
               contract_addr: secondToken.contract_addr,
               contract_code_hash: secondToken.contract_code_hash,
@@ -423,16 +452,19 @@ export const useLiquidity = () => {
         pairClient.contractAddress,
         pairClient.contractCodeHash as string,
         Buffer.from(JSON.stringify(withdrawMsg)).toString("base64"),
-        (gasValue !== undefined)? gasValue: defaultGas.remove_liquidity,
+        gasValue !== undefined ? gasValue : defaultGas.remove_liquidity
       );
 
-      if(removeLiquidityResponse.code || removeLiquidityResponse===undefined){
+      if (
+        removeLiquidityResponse.code ||
+        removeLiquidityResponse === undefined
+      ) {
         toaster.Error("Failed to remove liquidity.");
-        toaster.Error((removeLiquidityResponse.rawLog).substr(0,100) + "...");
-      }
-    else toast.success(`Removed Successfully`,{
-      type: "success",
-    });
+        toaster.Error(removeLiquidityResponse.rawLog.substr(0, 100) + "...");
+      } else
+        toast.success(`Removed Successfully`, {
+          type: "success",
+        });
 
       return removeLiquidityResponse;
     } catch (error) {

@@ -9,7 +9,7 @@ import PulseLoader from "react-spinners/PulseLoader";
 import { useLiquidity } from "../../hooks/useLiquidity";
 import { walletState } from "../../context/walletState";
 import { formatCompactNumber } from "../../utils/common";
-import ManageLiquidityModal from "./ManageLiquidityModal";
+// import ManageLiquidityModal from "./ManageLiquidityModal";
 import { queryClientState } from "../../context/queryClientState";
 
 import secretLogo from "../../assets/images/secret_swap_2_logo3.png";
@@ -29,7 +29,7 @@ const Poolinfo = () => {
     getPoolTotalAmount,
     getPoolUserBonded,
     getPoolAPR,
-  } = useLiquidity();
+  }:any = []
   // console.log("am i being called again and again(poolinfo)", pairs.pair_name);
   const [totalLiq, setTotalLiq] = useState("");
   const [userLiq, setUserLiq] = useState("");
@@ -409,7 +409,7 @@ const Poolinfo = () => {
             close
           </span>
         </div>
-        <ManageLiquidityModal setIsModalOpen={setliquidityModal}  isLpLoading1={isUserLoading} userLiq1={userLiq} getUserAmt= {getUserAmt}/>
+        {/* <ManageLiquidityModal setIsModalOpen={setliquidityModal}  isLpLoading1={isUserLoading} userLiq1={userLiq} getUserAmt= {getUserAmt}/> */}
       </Modal>
 
       <Modal

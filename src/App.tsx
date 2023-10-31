@@ -19,6 +19,8 @@ import { responsiveState } from "./context/responsiveState";
 import WalletSection from "./components/common/layout/WalletSection";
 
 import "./App.css";
+import ContractInfo from "./pages/contractinfo";
+import NewProposal from "./pages/newproposal";
 
 Modal.setAppElement("#root");
 
@@ -37,7 +39,9 @@ function App() {
           <div className="component-container">
             <Routes>
               <Route path="/" element={<Stake />} />
+              <Route path="/contract/:contractId" element={<ContractInfo />} />
               <Route path="/split" element={<Split />} />
+              <Route path="proposal/new" element={<NewProposal />} />
               {/* <Route path="/pools/:id" element={<PoolsInfo />} /> */}
               {/* <Route path="/rewards" element={<RewardsPage />} /> */}
               {/* <Route path="/withdraw" element={<WithdrawPage />} /> */}
