@@ -6,7 +6,7 @@ import DAO_DATA from "../../../config/dao_config.json";
 const NavLinks = () => {
   return (
     <div className="navlinks-container">
-      <NavigationButton icon={faFolderOpen} name={"All DAOs"} pathName="/" />
+      <NavigationButton icon={faFolderOpen} name={"Overview"} pathName="/" />
       {Object.keys(DAO_DATA).map((id) => {
         const data = DAO_DATA[id as keyof typeof DAO_DATA];
 

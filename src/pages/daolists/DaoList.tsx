@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const DaoList = () => {
   const navigate = useNavigate();
   return (
-    <Section heading="All DAOs">
+    <Section heading="Overview">
       <Grid
         gap={"20px"}
         // justifyContent={"space-evenly"}
