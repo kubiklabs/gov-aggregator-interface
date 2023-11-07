@@ -26,7 +26,7 @@ export const useNeutronGovQuery = (daoId: string) => {
 
   const createQueryClient = async () => {
     const queryClient = await CosmWasmClient.connect(
-      "https://rpc-kralum.neutron-1.neutron.org"
+      "http://45.250.253.23:26657"
     );
     setQueryClient(queryClient);
     return queryClient;
@@ -219,7 +219,7 @@ export const useNeutronGovQuery = (daoId: string) => {
       turnout,
       threshold: "40",
       yesVotes: voteDistribution.ratio.YES,
-      quorom: proposal?.threshold.threshold_quorum.quorum?.percent,
+      quorom: 0.1,
     };
     return parsedProposal;
   };

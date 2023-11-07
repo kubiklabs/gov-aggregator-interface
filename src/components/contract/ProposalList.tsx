@@ -15,6 +15,7 @@ import Card from "../common/DataDisplay/Card";
 import ColorTag from "../common/DataDisplay/ColorTag";
 import SubtitleText from "../common/DataDisplay/SubtitleText";
 import { Link, useNavigate } from "react-router-dom";
+import { neutronStatusMap } from "../../utils/constants";
 
 export interface ILpCardProps {
   id: string;
@@ -37,60 +38,64 @@ const ProposalList = ({ proposals }: { proposals: ILpCardProps[] }) => {
         }}
         to={`${pathName}/proposal/new`}
       >
-        <Button width={"200px"}>New Proposal</Button>
+        <Button fontWeight={"medium"} width={"150px"}>
+          + New Proposal
+        </Button>
       </Link>
-      <Grid
-        gap={"20px"}
-        // justifyContent={"space-evenly"}
-        // gridAutoFlow={"column"}
-        gridTemplateColumns={"repeat(auto-fit, minmax(350px, 1fr))"}
-      >
+      <Stack>
         {proposals.map((proposal) => {
           return (
-            <GridItem
+            <Card
               onClick={() => {
                 navigate(`${pathName}/proposal/${proposal.id}`);
               }}
+              cursor={"pointer"}
+              maWidth={"300px"}
             >
-              <Card cursor={"pointer"} maWidth={"300px"}>
-                <Stack>
-                  <Box maxH={"250px"} overflow={"hidden"}>
-                    <Avatar size={"3xl"} />
-                  </Box>
-                  <Stack padding={"35px"}>
-                    <Flex justifyContent={"space-between"}>
-                      <Stack>
-                        <Text>
-                          #{proposal.id} {proposal.title}
-                        </Text>
-                        <SubtitleText>
-                          voting ends on {proposal.endDate} {proposal.endTime}
-                        </SubtitleText>
-                      </Stack>
-                      <Button
-                        color={"white"}
-                        bg={"transparent"}
-                        border={"1px solid green"}
-                        _hover={{
-                          border: `1px solid white`,
-                        }}
-                        height={"40px"}
-                      >
-                        {proposal.status}
-                      </Button>
-                    </Flex>
-                    <Flex gap={"10px"} flexWrap={"wrap"}>
-                      {proposal.tags.map((tag: string) => {
-                        return <ColorTag bgColor="purple" content={tag} />;
-                      })}
-                    </Flex>
-                  </Stack>
-                </Stack>
-              </Card>
-            </GridItem>
+              <Flex
+                justifyContent={"space-between"}
+                width={"100%"}
+                alignItems={"center"}
+                padding={"35px"}
+              >
+                <Flex
+                  gap={"25px"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                >
+                  <Text>#{proposal.id}</Text>
+                  <Button
+                    color={"white"}
+                    bg={"transparent"}
+                    border={"1px solid"}
+                    borderColor={
+                      neutronStatusMap[
+                        proposal.status as keyof typeof neutronStatusMap
+                      ].bg
+                    }
+                    _hover={{
+                      border: `1px solid white`,
+                    }}
+                    height={"40px"}
+                    width={"150px"}
+                  >
+                    {proposal.status}
+                  </Button>
+                  <Text>{proposal.title}</Text>
+                </Flex>
+                <SubtitleText>
+                  {proposal.endDate} {proposal.endTime}
+                </SubtitleText>
+                {/* <Flex gap={"10px"} flexWrap={"wrap"}>
+                    {proposal.tags.map((tag: string) => {
+                      return <ColorTag bgColor="purple" content={tag} />;
+                    })}
+                  </Flex> */}
+              </Flex>
+            </Card>
           );
         })}
-      </Grid>
+      </Stack>
     </Section>
   );
 };

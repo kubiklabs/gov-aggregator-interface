@@ -44,7 +44,7 @@ export const useNeutronGovTxn = (daoId: string) => {
     const { address, offlineSigner } = await getNeutronAddressSigner();
     try {
       const client = await SigningCosmWasmClient.connectWithSigner(
-        "https://rpc-kralum.neutron-1.neutron.org",
+        "http://45.250.253.23:26657",
         offlineSigner
       );
 

@@ -13,7 +13,7 @@ const ContractInfo = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [daoId]);
 
   const fetchData = async () => {
     const data = await getNeutronProposalsList();
