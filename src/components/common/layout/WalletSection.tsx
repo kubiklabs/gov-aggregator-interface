@@ -31,7 +31,7 @@ const WalletSection = () => {
   //   (localStorage.getItem("networkState") !== null)
   //     ? localStorage.getItem("networkState") as string: "OsmosisTestnet"
   // );
-  const [value, setValue] = useState<string>("Testnet");
+  const [value, setValue] = useState<string>("Neutron");
 
   const handleChange = async (event: string) => {
     setValue(event);
@@ -57,8 +57,11 @@ const WalletSection = () => {
       <div className="">
         <ConnectWalletButton />
       </div>
-      <ThemeToggle />
-      <div className="poolSort network-button disabled-btn-testnet" onClick={()=>{}}>
+      {/* <ThemeToggle /> */}
+      <div
+        className="poolSort network-button disabled-btn-testnet"
+        onClick={() => {}}
+      >
         <div>
           <FontAwesomeIcon icon={faSort} />
         </div>

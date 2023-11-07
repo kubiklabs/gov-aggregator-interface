@@ -47,6 +47,8 @@ export const useConnectWallet = () => {
 
   const { network } = useRecoilValue(networkState);
   const baseDenom = networkConstants[network].baseDenom;
+  const chainId = chainInfo.getChainId();
+  const rpcUrl = chainInfo.getRpcUrl();
   // const toaster = useMessageToaster();
 
   return async () => {
@@ -64,24 +66,26 @@ export const useConnectWallet = () => {
       await (window as any).keplr.experimentalSuggestChain(
         chainInfo.getChainInfoData()
       );
-      await (window as any).keplr.enable(chainInfo.getChainId());
+      console.log(69);
+
+      await (window as any).keplr.enable(chainId);
+      console.log(70);
 
       const offlineSigner = (window as any).keplr.getOfflineSignerOnlyAmino(
-        chainInfo.getChainId()
+        chainId
       );
+      console.log(75);
 
       const [{ address }] = await offlineSigner.getAccounts();
 
       const wasmChainClient = await SigningCosmWasmClient.connectWithSigner(
-        chainInfo.getRpcUrl(),
+        rpcUrl,
         offlineSigner
       );
 
       const balance = await wasmChainClient.getBalance(address, baseDenom);
 
-      const walletName = await (window as any).keplr.getKey(
-        chainInfo.getChainId()
-      );
+      const walletName = await (window as any).keplr.getKey(chainId);
 
       // toast.update(tid, {
       //   type: "success",
@@ -106,16 +110,16 @@ export const useConnectWallet = () => {
       sessionStorage.setItem("isLoggedIn", "true");
 
       // TODO: make an efficient method to check the keplr account switch, instead of checking every second
-      setInterval(async () => {
-        const tmepdata = await offlineSigner.getAccounts();
-        const temp = tmepdata[0]?.address;
-        if (temp === address) {
-          await sleep(1);
-        } else {
-          navigate("/");
-          window.location.reload();
-        }
-      }, 4000);
+      // setInterval(async () => {
+      //   const tmepdata = await offlineSigner.getAccounts();
+      //   const temp = tmepdata[0]?.address;
+      //   if (temp === address) {
+      //     await sleep(1);
+      //   } else {
+      //     navigate("/");
+      //     window.location.reload();
+      //   }
+      // }, 4000);
     } catch (error) {
       console.log(error);
     } finally {

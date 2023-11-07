@@ -20,14 +20,16 @@ import { networkConstants } from "../../../utils/constants";
 
 const ConnectWalletButton = () => {
   const { isLoggingIn } = useContext(UserContext);
-  const { address, balance, shortAddress, nickName } = useRecoilValue(walletState);
+  const { address, balance, shortAddress, nickName } =
+    useRecoilValue(walletState);
   const connectWallet = useConnectWallet();
   const { Success } = useMessageToaster();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const { network } = useRecoilValue(networkState);
 
-  let buttonName = shortAddress === undefined ? "Connect Wallet" : (shortAddress as string);
+  let buttonName =
+    shortAddress === undefined ? "Connect Wallet" : (shortAddress as string);
   if ((window as any).keplr === undefined) {
     buttonName = "Install Keplr";
   }
@@ -50,7 +52,13 @@ const ConnectWalletButton = () => {
   };
 
   return (
-    <div className={ address? "connect-wallet-container" : "connect-wallet-container disconnected"}>
+    <div
+      className={
+        address
+          ? "connect-wallet-container"
+          : "connect-wallet-container disconnected"
+      }
+    >
       <div className="wallet-button wb-top">
         {isLoading ? (
           <PulseLoader
@@ -66,52 +74,50 @@ const ConnectWalletButton = () => {
             <button onClick={connectHandler} className="connect-wallet-button">
               {address ? nickName : ""}
             </button>
-            {address ? " | ": ""}
+            {address ? " | " : ""}
             <button onClick={connectHandler} className="connect-wallet-button">
               {address ? shortAddress : "Connect Keplr"}
             </button>
-            
           </>
         )}
       </div>
       {address && (
         <div className="wallet-button wb-top">
           <div className={`button-token-balance`}>
-          {" | "}
+            {" | "}
             {/* <FontAwesomeIcon rotate={"20deg"} icon={faWallet} size="1x" /> */}
             <div>
-              {networkConstants[network].baseSymbol}{" "}
-              <span>{Number(balance?.amount).toFixed(4) }</span>
+              {"NTRN"} <span>{Number(balance?.amount).toFixed(4)}</span>
             </div>
           </div>
         </div>
       )}
-      
+
       <div className="wallet-button wb-top">
-      {address ? <div className="mid-wall">{" | "}</div>: ""}
-      <div className="column-gap">
-      {address && (
-              <span onClick={copyAddress} className={`address-copy-wrapper`}>
-                <FontAwesomeIcon icon={faCopy} size="1x" />
-                <div className="floating-bubble-info copy-address-bubble-info">
-                  Copy address!
-                </div>
+        {address ? <div className="mid-wall">{" | "}</div> : ""}
+        <div className="column-gap">
+          {address && (
+            <span onClick={copyAddress} className={`address-copy-wrapper`}>
+              <FontAwesomeIcon icon={faCopy} size="1x" />
+              <div className="floating-bubble-info copy-address-bubble-info">
+                Copy address!
+              </div>
+            </span>
+          )}
+          {address && (
+            <>
+              <span
+                onClick={resetUserData}
+                className="material-symbols-outlined logout-logo"
+              >
+                logout
               </span>
-            )}
-            {address && (
-              <>
-                <span
-                  onClick={resetUserData}
-                  className="material-symbols-outlined logout-logo"
-                >
-                  logout
-                </span>
-                <div className="floating-bubble-info logout-bubble-info">
-                  Logout!
-                </div>
-              </>
-            )}
-            </div>
+              <div className="floating-bubble-info logout-bubble-info">
+                Logout!
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

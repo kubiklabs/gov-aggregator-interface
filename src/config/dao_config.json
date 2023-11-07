@@ -22,5 +22,13 @@
     "core_module": "neutron19g43wyj843ydkc845dcdea6su4mgfjwn5jpa84emhemt9grh8qcsjsrtcc",
     "voting_module": "neutron1f6jlx7d9y408tlzue7r2qcf79plp549n30yzqjajjud8vm7m4vdspg933s",
     "single_proposal": "neutron1nl237syqtwr37nh3gf207fn3t8a5gfy4cp0puvt0s9fk4sm0qmzscr89yg"
+  },
+  "4": {
+    "name": "Neutron DAO",
+    "description": "DAO for all CosmWasm enabled chains, Osmosis and Juno",
+    "chains": ["osmosis-test-1", "juno-test-1"],
+    "core_module": "neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff",
+    "voting_module": "neutron1f6jlx7d9y408tlzue7r2qcf79plp549n30yzqjajjud8vm7m4vdspg933s",
+    "single_proposal": "neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29jqwgshlt6zh"
   }
 }
