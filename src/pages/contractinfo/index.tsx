@@ -1,4 +1,4 @@
-import { Stack, Text } from "@chakra-ui/react";
+import { Center, Spinner, Stack, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import PoolList from "../../components/contract/PoolList";
 import ProposalList from "../../components/contract/ProposalList";
@@ -13,8 +13,10 @@ import { log } from "console";
 const ContractInfo = () => {
   const { daoId } = useParams();
   const chains = DAO_DATA[daoId as keyof typeof DAO_DATA].chains;
+
+  const [isLoading, setIsLoading] = useState(false);
   const [proposals, setProposals] = useState<any>();
-  const [poolInfoList, setPoolInfoList] = useState<any>();
+  const [poolInfoList, setPoolInfoList] = useState<IParsedPoolInfo[]>([]);
   const { getNeutronProposalsList } = useNeutronGovQuery(daoId as string);
   const { getParsedPoolList } = useCommunityPools();
 
@@ -23,18 +25,27 @@ const ContractInfo = () => {
   }, [daoId]);
 
   const fetchData = async () => {
+    setIsLoading(true);
     const data = await getNeutronProposalsList();
     setProposals(data);
     const poolList = await getParsedPoolList(chains);
     console.log(poolList);
     setPoolInfoList(poolList);
+    setIsLoading(false);
   };
 
   return (
     <Stack gap={"50px"}>
-      <Text>{poolInfoList?.length}</Text>
-      {poolInfoList?.length && <PoolList pools={poolInfoList} />}
-      {proposals?.length && <ProposalList proposals={proposals} />}
+      {isLoading ? (
+        <Center>
+          <Spinner size={"xl"} color="white" />
+        </Center>
+      ) : (
+        <>
+          {poolInfoList?.length ? <PoolList pools={poolInfoList} /> : null}
+          {proposals?.length ? <ProposalList proposals={proposals} /> : null}
+        </>
+      )}
     </Stack>
   );
 };

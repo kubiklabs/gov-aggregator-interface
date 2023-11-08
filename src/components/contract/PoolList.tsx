@@ -74,9 +74,10 @@ const PoolList = ({ pools }: { pools: IParsedPoolInfo[] }) => {
                     </Flex>
                     <Flex justifyContent={"space-between"}>
                       <Text>Token Balance</Text>
-                      <Text>
-                        {tokens} <SubtitleText>{denom}</SubtitleText>
-                      </Text>
+                      <Flex gap={"10px"}>
+                        <Text>{Number(tokens).toLocaleString()} </Text>
+                        <SubtitleText>{denom}</SubtitleText>
+                      </Flex>
                     </Flex>
                     {/* <Flex justifyContent={"space-between"}>
                       <Text>Total Members </Text>

@@ -23,18 +23,17 @@ const useCommunityPools = () => {
           `https://api.coingecko.com/api/v3/simple/price?ids=${coingecko_id}&vs_currencies=usd`
         )
       ).data[coingecko_id].usd;
-      console.log(price);
       const amount = (
         await axios.get(
           `${apis.rest}/cosmos/distribution/v1beta1/community_pool`
         )
       ).data.pool[0].amount;
-
+      // console.log(amount, coinConvert(parseInt(amount), 6, "human"));
       const parsedPoolInfo: IParsedPoolInfo = {
         name: name,
         denom: denom,
-        tokens: coinConvert(amount, 6, "human"),
-        totalFund: Number(coinConvert(amount, 6, "human")) * price,
+        tokens: coinConvert(parseInt(amount), 6, "human"),
+        totalFund: Number(coinConvert(parseInt(amount), 6, "human")) * price,
         logo_uri,
       };
       return parsedPoolInfo;
@@ -46,10 +45,11 @@ const useCommunityPools = () => {
   const getParsedPoolList = async (chainIds: string[]) => {
     let parsedPoolList: IParsedPoolInfo[] = [];
     try {
-      chainIds.map(async (id) => {
+      for (const i in chainIds) {
+        const id = chainIds[i];
         const poolInfo = await getParsedPoolInfo(id);
         parsedPoolList.push(poolInfo as IParsedPoolInfo);
-      });
+      }
     } catch (error) {
       console.log(error);
     }
