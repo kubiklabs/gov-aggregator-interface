@@ -6,7 +6,12 @@
     "core_module": "neutron17q90gwd9279une6fagsxqrak87fmc3gtusv9dglwc0ezcxufrtdsqalpx9",
     "voting_module": "",
     "single_proposal": "neutron1ntppezzavpk3ea2y3x4kwdhzs803vl4w0ckk3neegtmmlze0gw8qqrkgfx",
-    "ica-helper": "neutron1v8leqn5fv0hk056hkky8ym8gytuehe962cy4nt2mrg4lyt05p9nsz9p69a"
+    "ica-helper": "neutron1v8leqn5fv0hk056hkky8ym8gytuehe962cy4nt2mrg4lyt05p9nsz9p69a",
+    "chain-logo-uris": [
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.png"
+    ]
   },
   "2": {
     "name": "Hub & Osmosis",
@@ -15,7 +20,11 @@
     "core_module": "neutron15608kvpuz7a0cddcn4jp560yk0uwyjgys5hx8slare56wfdcaseslsrp4j",
     "voting_module": "",
     "single_proposal": "neutron1xnl29l92rt8y76fqvukz8al373h4ld3wwn58g6m0tazgwzgcp7mq72apls",
-    "ica-helper": "neutron1hn54qrgnud8fn3ve5eelg9x29lp9fm6t8um5hp2t4fgzuw6tmdpqxeuw9x"
+    "ica-helper": "neutron1hn54qrgnud8fn3ve5eelg9x29lp9fm6t8um5hp2t4fgzuw6tmdpqxeuw9x",
+    "chain-logo-uris": [
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png"
+    ]
   },
   "3": {
     "name": "CosmWasm DAO",
@@ -24,14 +33,10 @@
     "core_module": "neutron1wpqx4mhe5hmgte8s4etam4syfxjt83zwvejhgsmcludfpt5hd6kquxtjd3",
     "voting_module": "",
     "single_proposal": "neutron1kg8uzrhqnjp0a4rp6c6wtnl3y4prth7v54h5gwnkwgtn82yealxsekesg2",
-    "ica-helper": "neutron1pggva37n3yr92stjc4vquvsl4dulgm7z34ja24e23t5nck3ezjpqm5u530"
-  },
-  "4": {
-    "name": "Neutron DAO",
-    "description": "DAO for all CosmWasm enabled chains, Osmosis and Juno",
-    "chains": ["osmosis-test-1", "juno-test-1"],
-    "core_module": "neutron1suhgf5svhu4usrurvxzlgn54ksxmn8gljarjtxqnapv8kjnp4nrstdxvff",
-    "voting_module": "neutron1f6jlx7d9y408tlzue7r2qcf79plp549n30yzqjajjud8vm7m4vdspg933s",
-    "single_proposal": "neutron1436kxs0w2es6xlqpp9rd35e3d0cjnw4sv8j3a7483sgks29jqwgshlt6zh"
+    "ica-helper": "neutron1pggva37n3yr92stjc4vquvsl4dulgm7z34ja24e23t5nck3ezjpqm5u530",
+    "chain-logo-uris": [
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+      "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.png"
+    ]
   }
 }

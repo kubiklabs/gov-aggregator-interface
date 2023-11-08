@@ -1,4 +1,4 @@
-import { Flex, Grid, Stack, Text } from "@chakra-ui/react";
+import { Avatar, Flex, Grid, Stack, Text } from "@chakra-ui/react";
 import Card from "../../components/common/DataDisplay/Card";
 import Section from "../../components/common/layout/Section";
 import DAO_DATA from "../../config/dao_config.json";
@@ -24,41 +24,70 @@ const DaoList = () => {
               p={"20px"}
               cursor={"pointer"}
             >
-              <Stack>
-                <Text textAlign={"left"} fontSize={"2rem"}>
-                  #{id} {data.name}
-                </Text>
-                <SubtitleText>{data.description}</SubtitleText>
-                <Flex justifyContent={"space-between"}>
-                  <Text>Dao Core</Text>
-                  <Text
-                    onClick={() =>
-                      navigator.clipboard.writeText(data.core_module)
-                    }
-                  >
-                    {getShortHandAddress(data.core_module)}
-                  </Text>
-                </Flex>
-                <Flex justifyContent={"space-between"}>
-                  <Text>Voting Module</Text>
-                  <Text
-                    onClick={() =>
-                      navigator.clipboard.writeText(data.voting_module)
-                    }
-                  >
-                    {getShortHandAddress(data.voting_module)}
-                  </Text>
-                </Flex>
-                <Flex justifyContent={"space-between"}>
-                  <Text>Single Proposal</Text>
-                  <Text
-                    onClick={() =>
-                      navigator.clipboard.writeText(data.single_proposal)
-                    }
-                  >
-                    {getShortHandAddress(data.single_proposal)}
-                  </Text>
-                </Flex>
+              <Stack gap={"25px"}>
+                <Stack gap={"5px"}>
+                  <Flex>
+                    <Flex>
+                      {data["chain-logo-uris"].map((src, index) => {
+                        return (
+                          <Avatar
+                            transform={`translateX(${index * -20}px)`}
+                            key={index}
+                            zIndex={10 - index}
+                            size={"md"}
+                            src={src}
+                          />
+                        );
+                      })}
+                    </Flex>
+                    <Text textAlign={"left"} fontSize={"1.5rem"}>
+                      #{id} {data.name}
+                    </Text>
+                  </Flex>
+                  <SubtitleText>{data.description}</SubtitleText>
+                </Stack>
+                <Stack>
+                  <Flex justifyContent={"space-between"}>
+                    <Text>Dao Core</Text>
+                    <Text
+                      onClick={() =>
+                        navigator.clipboard.writeText(data.core_module)
+                      }
+                    >
+                      {getShortHandAddress(data.core_module)}
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text>Voting Module</Text>
+                    <Text
+                      onClick={() =>
+                        navigator.clipboard.writeText(data.voting_module)
+                      }
+                    >
+                      {getShortHandAddress(data.voting_module)}
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text>Single Proposal</Text>
+                    <Text
+                      onClick={() =>
+                        navigator.clipboard.writeText(data.single_proposal)
+                      }
+                    >
+                      {getShortHandAddress(data.single_proposal)}
+                    </Text>
+                  </Flex>
+                  <Flex justifyContent={"space-between"}>
+                    <Text>ICA Helper</Text>
+                    <Text
+                      onClick={() =>
+                        navigator.clipboard.writeText(data["ica-helper"])
+                      }
+                    >
+                      {getShortHandAddress(data["ica-helper"])}
+                    </Text>
+                  </Flex>
+                </Stack>
               </Stack>
             </Card>
           );
