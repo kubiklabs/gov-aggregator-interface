@@ -1,75 +1,87 @@
-import { Avatar, Box, Flex, Grid, Stack, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Grid, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import Card from "../common/DataDisplay/Card";
 import Section from "../common/layout/Section";
+import CHAIN_DATA from "../../config/chain_config.json";
+import { log } from "console";
+import { IParsedPoolInfo } from "../../hooks/useCommunityPools";
+import SubtitleText from "../common/DataDisplay/SubtitleText";
 
-const DATA = [
-  {
-    poolName: "Osmosis",
-    fund: "$102,100",
-    balance: "9,202,200",
-    memberCount: 40,
-  },
-  {
-    poolName: "Osmosis",
-    fund: "$102,100",
-    balance: "9,202,200",
-    memberCount: 40,
-  },
-  {
-    poolName: "Osmosis",
-    fund: "$102,100",
-    balance: "9,202,200",
-    memberCount: 40,
-  },
-  {
-    poolName: "Osmosis",
-    fund: "$102,100",
-    balance: "9,202,200",
-    memberCount: 40,
-  },
-  {
-    poolName: "Osmosis",
-    fund: "$102,100",
-    balance: "9,202,200",
-    memberCount: 40,
-  },
-];
+// const DATA = [
+//   {
+//     poolName: "Osmosis",
+//     fund: "$102,100",
+//     balance: "9,202,200",
+//     memberCount: 40,
+//   },
+//   {
+//     poolName: "Osmosis",
+//     fund: "$102,100",
+//     balance: "9,202,200",
+//     memberCount: 40,
+//   },
+//   {
+//     poolName: "Osmosis",
+//     fund: "$102,100",
+//     balance: "9,202,200",
+//     memberCount: 40,
+//   },
+//   {
+//     poolName: "Osmosis",
+//     fund: "$102,100",
+//     balance: "9,202,200",
+//     memberCount: 40,
+//   },
+//   {
+//     poolName: "Osmosis",
+//     fund: "$102,100",
+//     balance: "9,202,200",
+//     memberCount: 40,
+//   },
+// ];
 
 //Provide a data array in the above format as props
 
-const PoolList = () => {
+const PoolList = ({ pools }: { pools: IParsedPoolInfo[] }) => {
   return (
     <Section heading="Community Pools">
       <Grid
         gap={"20px"}
-        // justifyContent={"space-evenly"}
-        // gridAutoFlow={"column"}
         gridTemplateColumns={"repeat(auto-fit, minmax(300px, 1fr))"}
       >
-        {" "}
-        {DATA.map((item) => {
+        {pools.map((pool) => {
+          const { denom, name, tokens, totalFund, logo_uri } = pool;
+
           return (
             <Card minW={"250px"}>
               <Stack>
                 <Box height={"200px"} width={"100%"} overflow={"hidden"}>
-                  <Avatar size={"3xl"} />
+                  <Image
+                    // transform={"translateY(-50px)"}
+                    // size={"3xl"}
+                    boxSize="100%"
+                    objectFit="cover"
+                    objectPosition={"0px -15px"}
+                    src={logo_uri}
+                  />
                 </Box>
-                <Stack p={"15px"}>
-                  <Text size={"1.5rem"}>{item.poolName}</Text>
+                <Stack p={"25px"}>
+                  <Text size={"1.5rem"}>{name}</Text>
                   <Stack>
                     <Flex justifyContent={"space-between"}>
                       <Text>Pool Fund</Text>
-                      <Text>{item.fund}</Text>
+                      <Text>$ {totalFund.toLocaleString()}</Text>
                     </Flex>
                     <Flex justifyContent={"space-between"}>
                       <Text>Token Balance</Text>
-                      <Text>{item.balance}</Text>
+                      <Text>
+                        {tokens} <SubtitleText>{denom}</SubtitleText>
+                      </Text>
                     </Flex>
-                    <Flex justifyContent={"space-between"}>
+                    {/* <Flex justifyContent={"space-between"}>
                       <Text>Total Members </Text>
-                      <Text>{item.memberCount}</Text>
-                    </Flex>
+                      <Text>{7}</Text>
+                    </Flex> */}
                   </Stack>
                 </Stack>
               </Stack>

@@ -22,6 +22,8 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.6.0",
+    "browserify-zlib": "^0.2.0",
     "decimal.js": "^10.4.2",
     "framer-motion": "^10.16.4",
     "marked": "^9.1.4",

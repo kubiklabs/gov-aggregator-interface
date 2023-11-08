@@ -1,14 +1,42 @@
 {
   "gaia-test-2": {
-    "denom": "uatom"
+    "denom": "uatom",
+    "name": "Cosmos Hub",
+    "apis": {
+      "rest": "http://45.250.253.23:1316",
+      "rpc": "http://45.250.253.23:16657"
+    },
+    "logo_uri": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
+    "coingecko_id": "cosmos"
   },
   "osmosis-test-1": {
-    "denom": "uosmo"
+    "denom": "uosmo",
+    "name": "Osmosis",
+    "apis": {
+      "rest": "http://45.250.253.23:1314",
+      "rpc": "http://45.250.253.23:26657"
+    },
+    "logo_uri": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
+    "coingecko_id": "osmosis"
   },
   "juno-test-1": {
-    "denom": "ujuno"
+    "denom": "ujuno",
+    "name": "Juno",
+    "apis": {
+      "rest": "http://45.250.253.23:1315",
+      "rpc": "http://45.250.253.23:36657"
+    },
+    "logo_uri": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.png",
+    "coingecko_id": "juno-network"
   },
   "neutron-test-1": {
-    "denom": "untrn"
+    "denom": "untrn",
+    "name": "Neutron",
+    "apis": {
+      "rest": "http://45.250.253.23:1317",
+      "rpc": "http://45.250.253.23:46657"
+    },
+    "logo_uri": "",
+    "coingecko_id": "neutron-3"
   }
 }

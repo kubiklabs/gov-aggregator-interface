@@ -2,7 +2,7 @@
   "1": {
     "name": "Common DAO",
     "description": "One DAO for all the connected chains, Cosmos Hub, Osmosis and Juno",
-    "chains": ["cosmos-test-1", "osmosis-test-1", "juno-test-1"],
+    "chains": ["gaia-test-2", "osmosis-test-1", "juno-test-1"],
     "core_module": "neutron17q90gwd9279une6fagsxqrak87fmc3gtusv9dglwc0ezcxufrtdsqalpx9",
     "voting_module": "",
     "single_proposal": "neutron1ntppezzavpk3ea2y3x4kwdhzs803vl4w0ckk3neegtmmlze0gw8qqrkgfx",
@@ -16,7 +16,7 @@
   "2": {
     "name": "Hub & Osmosis",
     "description": "DAO for Cosmos Hub and Osmosis",
-    "chains": ["cosmos-test-1", "osmosis-test-1"],
+    "chains": ["gaia-test-2", "osmosis-test-1"],
     "core_module": "neutron15608kvpuz7a0cddcn4jp560yk0uwyjgys5hx8slare56wfdcaseslsrp4j",
     "voting_module": "",
     "single_proposal": "neutron1xnl29l92rt8y76fqvukz8al373h4ld3wwn58g6m0tazgwzgcp7mq72apls",

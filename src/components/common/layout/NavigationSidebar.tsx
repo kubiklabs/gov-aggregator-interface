@@ -76,7 +76,7 @@ const NavigationSidebar = () => {
         </div>
         <div className="ns-wrapper">
           {/* <RightPane /> */}
-          <HeaderSocials />
+          {/* <HeaderSocials /> */}
         </div>
       </div>
     </>

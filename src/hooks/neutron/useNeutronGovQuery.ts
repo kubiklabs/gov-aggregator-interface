@@ -14,9 +14,6 @@ export const useNeutronGovQuery = (daoId: string) => {
   const [proposals, setProposals] = useState<any[]>([]);
   // const [vpState, setVpState] = useRecoilState(userVpState);
   const address = useRecoilValue(walletState);
-
-  console.log(DAO_DATA, daoId, DAO_DATA[daoId as keyof typeof DAO_DATA]);
-
   const { single_proposal, voting_module } =
     DAO_DATA[daoId as keyof typeof DAO_DATA];
 

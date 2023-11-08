@@ -50,7 +50,7 @@ const ProposalList = ({ proposals }: { proposals: ILpCardProps[] }) => {
                 navigate(`${pathName}/proposal/${proposal.id}`);
               }}
               cursor={"pointer"}
-              maWidth={"300px"}
+              // maxWidth={"300px"}
             >
               <Flex
                 justifyContent={"space-between"}
