@@ -7,6 +7,7 @@ import { useNeutronGovTxn } from "./neutron/useNeutronGovTxn";
 // import { useStrideGovTxn } from "./chains/stride/useStrideGovTxn";
 import { walletState } from "../context/walletState";
 import { userVpState } from "../context/userVpState";
+import { log } from "console";
 // import { userVpState } from "../context/userVpState";
 
 export const useGovernance = (daoId: string) => {
@@ -27,7 +28,7 @@ export const useGovernance = (daoId: string) => {
   //   useStrideGovQuery();
   // const { sendCosmosVote, getCosmosAddressSigner } = useCosmosGovTxn();
   // const { sendStrideVote, getStrideAddressSigner } = useStrideGovTxn();
-  const { sendNeutronVote, getNeutronAddressSigner } = useNeutronGovTxn(
+  const { sendNeutronVote, addNeutronProposal } = useNeutronGovTxn(
     daoId as string
   );
 
@@ -53,10 +54,10 @@ export const useGovernance = (daoId: string) => {
 
   // };
 
-  const fetchVotingPower = async (name: string) => {
-    const { address } = await getNeutronAddressSigner();
-    return await getNeutronVotingPower(address);
-  };
+  // const fetchVotingPower = async (name: string) => {
+  //   const { address } = await getNeutronAddressSigner();
+  //   return await getNeutronVotingPower(address);
+  // };
 
   const fetchUserVote = async (name: string, id: string) => {
     return await getNeutronUserVote(id);
@@ -69,12 +70,25 @@ export const useGovernance = (daoId: string) => {
   ) => {
     return await sendNeutronVote(proposalId, voteOption);
   };
+
+  const addGovProposal = async (data: {
+    title: string;
+    description: string;
+    action: string;
+    chainId: string;
+    amount: string;
+  }) => {
+    const { title, description, action, chainId, amount } = data;
+
+    await addNeutronProposal(title, description, action, chainId, amount);
+  };
   return {
     fetchProposalByIdAndName,
     // fetchTotalBondedToken,
     sendGovVote,
-    fetchVotingPower,
+    // fetchVotingPower,
     fetchUserVote,
     fetchAllUserVp,
+    addGovProposal,
   };
 };

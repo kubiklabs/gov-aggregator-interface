@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import logo from "../../../assets/img/kubik-logo.png";
+import logo from "../../../assets/img/adao-logo.png";
 import "./LoadingModal.css";
 import LoaderContent from "./LoaderContent";
 

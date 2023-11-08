@@ -24,9 +24,13 @@ const DaoList = () => {
               p={"20px"}
               cursor={"pointer"}
             >
-              <Stack gap={"25px"}>
+              <Stack
+                justifyContent={"space-between"}
+                height={"100%"}
+                gap={"25px"}
+              >
                 <Stack gap={"5px"}>
-                  <Flex>
+                  <Flex justifyContent={"space-between"}>
                     <Flex>
                       {data["chain-logo-uris"].map((src, index) => {
                         return (

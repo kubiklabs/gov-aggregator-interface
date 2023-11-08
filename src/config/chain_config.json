@@ -1,0 +1,14 @@
+{
+  "gaia-test-2": {
+    "denom": "uatom"
+  },
+  "osmosis-test-1": {
+    "denom": "uosmo"
+  },
+  "juno-test-1": {
+    "denom": "ujuno"
+  },
+  "neutron-test-1": {
+    "denom": "untrn"
+  }
+}

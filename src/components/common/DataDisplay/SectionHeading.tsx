@@ -15,9 +15,10 @@ const SectionHeading = ({
       flexDirection={"column"}
       display={"flex"}
       textAlign={"left"}
+      padding={0}
     >
       <Box display={"flex"} gap={"10px"} alignItems={"end"}>
-        <Heading size={"xl"} margin={"0px"}>
+        <Heading size={"xl"} padding={0} margin={"0px"}>
           {heading}
         </Heading>
         <Text margin={"0"} fontSize={"1.5rem"} color={"gray"}>
