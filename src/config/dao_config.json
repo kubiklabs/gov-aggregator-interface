@@ -2,7 +2,7 @@
   "1": {
     "name": "Common DAO",
     "description": "One DAO for all the connected chains, Cosmos Hub, Osmosis and Juno",
-    "chains": ["gaia-test-2", "osmo-test-4", "juno-test-3"],
+    "chains": ["gaia-test-2", "osmosis-test-4", "juno-test-3"],
     "core_module": "neutron17q90gwd9279une6fagsxqrak87fmc3gtusv9dglwc0ezcxufrtdsqalpx9",
     "voting_module": "",
     "single_proposal": "neutron1ntppezzavpk3ea2y3x4kwdhzs803vl4w0ckk3neegtmmlze0gw8qqrkgfx",
@@ -16,11 +16,11 @@
   "2": {
     "name": "Hub & Osmosis",
     "description": "DAO for Cosmos Hub and Osmosis",
-    "chains": ["gaia-test-2", "osmo-test-4"],
-    "core_module": "neutron1wpqx4mhe5hmgte8s4etam4syfxjt83zwvejhgsmcludfpt5hd6kquxtjd3",
+    "chains": ["gaia-test-2", "osmosis-test-4"],
+    "core_module": "neutron1ytn4v3pd9ecklqf32pusephxpnfvnev7657rprr3jh43rchygvmq9mmaw3",
     "voting_module": "",
-    "single_proposal": "neutron1kg8uzrhqnjp0a4rp6c6wtnl3y4prth7v54h5gwnkwgtn82yealxsekesg2",
-    "ica-helper": "neutron1pggva37n3yr92stjc4vquvsl4dulgm7z34ja24e23t5nck3ezjpqm5u530",
+    "single_proposal": "neutron1xcy206pcydldprk6rmvqfpek7rz2f0gatdaf035zt0r0tg2eu33spl6kpy",
+    "ica-helper": "neutron107x8mx9hu4fxz02d2fep02cvwqe5udnazx40fxuthck3fn7lgkpq2ht6st",
     "chain-logo-uris": [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png"
@@ -29,7 +29,7 @@
   "3": {
     "name": "CosmWasm DAO",
     "description": "DAO for all CosmWasm enabled chains, Osmosis and Juno",
-    "chains": ["osmo-test-4", "juno-test-3"],
+    "chains": ["osmosis-test-4", "juno-test-3"],
     "core_module": "neutron15608kvpuz7a0cddcn4jp560yk0uwyjgys5hx8slare56wfdcaseslsrp4j",
     "voting_module": "",
     "single_proposal": "neutron1xnl29l92rt8y76fqvukz8al373h4ld3wwn58g6m0tazgwzgcp7mq72apls",
