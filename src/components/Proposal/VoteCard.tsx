@@ -5,7 +5,8 @@ import { useParams } from "react-router-dom";
 import LoadingModal from "../common/loading-modal/LoadingModal";
 import { colorVoteMap } from "../../utils/constants";
 import { useNeutronGovTxn } from "../../hooks/neutron/useNeutronGovTxn";
-
+import DAO_DATA from "../../config/dao_config.json";
+import CHAIN_DATA from "../../config/chain_config.json";
 type IColorVoteMap = typeof colorVoteMap;
 
 const VoteCard = (props: any) => {
@@ -70,14 +71,27 @@ const VoteCard = (props: any) => {
             {props.value}%
           </Text>
         </Flex>
-        <Text
+        <Flex
           color={"#bfbfbf"}
           alignSelf={"flex-end"}
           fontSize={"0.9rem"}
           m={"0"}
+          gap={"15px"}
         >
-          {props.tokenAmountUnderVote} {props.prettyDenom}
-        </Text>
+          {DAO_DATA[daoId as keyof typeof DAO_DATA].chains.map((id) => {
+            const denom = CHAIN_DATA[id as keyof typeof CHAIN_DATA].symbol;
+            return (
+              <Text
+                color={"#bfbfbf"}
+                alignSelf={"flex-end"}
+                fontSize={"0.9rem"}
+                m={"0"}
+              >
+                {props.tokenAmountUnderVote} {denom}
+              </Text>
+            );
+          })}
+        </Flex>
       </Flex>
       <LoadingModal
         isOpen={loading}

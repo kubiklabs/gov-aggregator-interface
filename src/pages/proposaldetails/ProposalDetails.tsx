@@ -43,7 +43,7 @@ const ProposalDetails = () => {
   ) : (
     <Box flexDirection={"column"} display={"flex"} gap={"50px"}>
       <BasicInfo {...proposalData} />
-      {proposalData?.status !== "executed" ? (
+      {proposalData?.status === "passed" ? (
         <Button colorScheme="green" onClick={execute}>
           Execute Proposal
         </Button>
