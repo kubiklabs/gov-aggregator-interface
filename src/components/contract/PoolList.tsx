@@ -45,7 +45,7 @@ import SubtitleText from "../common/DataDisplay/SubtitleText";
 const PoolList = ({ pools }: { pools: IParsedPoolInfo[] }) => {
   return (
     <Section heading="Community Pools">
-      <Stack direction={"row"} flexWrap={"wrap"}>
+      <Stack gap={"25px"} direction={"row"} flexWrap={"wrap"}>
         {pools.map((pool) => {
           const { denom, name, tokens, totalFund, logo_uri } = pool;
 

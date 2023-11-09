@@ -7,7 +7,7 @@ import SubtitleText from "../common/DataDisplay/SubtitleText";
 const Treasury = ({ assetList }: { assetList: any[] }) => {
   return (
     <Section heading="Treasury">
-      <Stack direction={"row"} flexWrap={"wrap"}>
+      <Stack direction={"row"} flexWrap={"wrap"} gap={"25px"}>
         {assetList.map((asset) => {
           return (
             <Card flex={"1"} maxW={"500px"} minW={"300px"} padding="15px 25px">
