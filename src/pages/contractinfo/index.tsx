@@ -9,6 +9,8 @@ import useCommunityPools, {
   IParsedPoolInfo,
 } from "../../hooks/useCommunityPools";
 import { log } from "console";
+import Treasury from "../../components/contract/Treasury";
+import { useAssets } from "../../hooks/useAssets";
 
 const ContractInfo = () => {
   const { daoId } = useParams();
@@ -18,6 +20,7 @@ const ContractInfo = () => {
   const [proposals, setProposals] = useState<any>();
   const [poolInfoList, setPoolInfoList] = useState<IParsedPoolInfo[]>([]);
   const { getNeutronProposalsList } = useNeutronGovQuery(daoId as string);
+  const { getAllBalances } = useAssets(daoId as string);
   const { getParsedPoolList } = useCommunityPools();
 
   useEffect(() => {
@@ -25,6 +28,7 @@ const ContractInfo = () => {
   }, [daoId]);
 
   const fetchData = async () => {
+    getAllBalances();
     setIsLoading(true);
     const data = await getNeutronProposalsList();
     setProposals(data);
@@ -44,6 +48,7 @@ const ContractInfo = () => {
         <>
           {poolInfoList?.length ? <PoolList pools={poolInfoList} /> : null}
           {proposals?.length ? <ProposalList proposals={proposals} /> : null}
+          <Treasury />
         </>
       )}
     </Stack>

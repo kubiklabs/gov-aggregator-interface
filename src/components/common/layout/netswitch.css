@@ -192,7 +192,7 @@
 .toggleSwitch label:active:after {
   width: 60px;
 }
-
+/* 
 label svg {
   position: absolute;
   width: 20px;
@@ -215,7 +215,7 @@ label svg.moon {
 }
 label.checked svg.moon {
   color: #fff;
-}
+} */
 
 /* Network Button CSS */
 

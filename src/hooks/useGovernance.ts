@@ -75,12 +75,12 @@ export const useGovernance = (daoId: string) => {
     title: string;
     description: string;
     action: string;
-    chainId: string;
-    amount: string;
+    chainIds: string[];
+    amounts: object[];
   }) => {
-    const { title, description, action, chainId, amount } = data;
+    const { title, description, action, chainIds, amounts } = data;
 
-    await addNeutronProposal(title, description, action, chainId, amount);
+    await addNeutronProposal(title, description, action, chainIds, amounts);
   };
   return {
     fetchProposalByIdAndName,

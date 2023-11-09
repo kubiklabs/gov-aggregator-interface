@@ -115,17 +115,38 @@ export const useNeutronGovTxn = (daoId: string) => {
     title: string,
     description: string,
     action: string,
-    chainId: string,
-    amount: string
+    chainIds: string[],
+    amounts: any[]
   ) => {
     // const { address, offlineSigner } = await getNeutronAddressSigner();
-    console.log(CHAIN_DATA[chainId as keyof typeof CHAIN_DATA]);
+    // console.log(CHAIN_DATA[chainId as keyof typeof CHAIN_DATA]);
     let client = txnClient;
     if (!client) {
       client = await createTxnClient();
     }
 
     try {
+      const messages = chainIds.map((chainId) => {
+        const { denom, interchain_account_id } =
+          CHAIN_DATA[chainId as keyof typeof CHAIN_DATA];
+        return {
+          custom: {
+            [action]: {
+              demand_info: [
+                {
+                  chain_id: chainId,
+                  amount: amounts.find((i: any) => i.chainId === chainId)
+                    .amount,
+                  denom,
+                  interchain_account_id,
+                },
+              ],
+            },
+          },
+        };
+      });
+      console.log(messages);
+
       if (!client) return;
       const { transactionHash } = await client.execute(
         address as string,
@@ -134,22 +155,7 @@ export const useNeutronGovTxn = (daoId: string) => {
           propose: {
             title,
             description,
-            msgs: [
-              {
-                custom: {
-                  [action]: {
-                    demand_info: [
-                      {
-                        chain_id: chainId,
-                        amount: amount as string,
-                        denom:
-                          CHAIN_DATA[chainId as keyof typeof CHAIN_DATA].denom,
-                      },
-                    ],
-                  },
-                },
-              },
-            ],
+            msgs: messages,
             proposer: null,
           },
         },

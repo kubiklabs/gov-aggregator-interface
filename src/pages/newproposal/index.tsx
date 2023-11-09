@@ -1,8 +1,12 @@
 import {
   Button,
   ButtonGroup,
+  Checkbox,
+  CheckboxGroup,
   Flex,
   FormControl,
+  FormErrorMessage,
+  FormHelperText,
   FormLabel,
   Input,
   NumberInput,
@@ -17,29 +21,44 @@ import Section from "../../components/common/layout/Section";
 import { useGovernance } from "../../hooks/useGovernance";
 import { useParams } from "react-router-dom";
 import DAO_LIST from "../../config/dao_config.json";
+import CHAIN_LIST from "../../config/chain_config.json";
 import Card from "../../components/common/DataDisplay/Card";
 import LoadingModal from "../../components/common/loading-modal/LoadingModal";
+import { log } from "console";
 
 const NewProposal = () => {
   const { daoId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
+  const [chains, setChain] = useState<string[]>([]);
 
   const { addGovProposal } = useGovernance(daoId as string);
 
   const onFormSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
-    const { title, description, action, chainId, amount } = e.target;
+    const { title, description, action, amount } = e.target;
+
+    const amounts = [];
+    for (const value of amount.values()) {
+      if (value.disabled) continue;
+      amounts.push({ amount: value.value, chainId: value.id });
+    }
+
     const value = {
       title: title.value,
       description: description.value,
       action: action.value,
-      chainId: chainId.value,
-      amount: amount.value,
+      chainIds: chains,
+      amounts,
     };
     console.log(value);
     await addGovProposal({ ...value });
     setIsLoading(false);
+  };
+
+  const onChangeChain = (e: any) => {
+    console.log(e);
+    setChain(e);
   };
 
   return (
@@ -62,45 +81,70 @@ const NewProposal = () => {
               <Textarea required name="description" id="proposal-description" />
             </Stack>
             <Stack>
-              <FormLabel fontSize={"1.5rem"}>Select Action</FormLabel>
-              <RadioGroup
-                aria-required
-                colorScheme={"green"}
-                name="action"
-                size={"lg"}
-              >
-                <Stack spacing={4} direction="row">
-                  <Radio value="bring_remote_fund">Bring Remote Fund</Radio>
-                  <Radio value="send_remote_fund">Send Remote Fund</Radio>
-                </Stack>
-              </RadioGroup>
+              <FormControl isRequired>
+                <FormLabel requiredIndicator={<></>} fontSize={"1.5rem"}>
+                  Select Action
+                </FormLabel>
+                <RadioGroup
+                  aria-required
+                  colorScheme={"green"}
+                  name="action"
+                  size={"lg"}
+                  id="action"
+                >
+                  <Stack spacing={4} direction="row">
+                    <Radio value="propose_fund">Propose Fund</Radio>
+                    <Radio value="bring_remote_fund">Bring Remote Fund</Radio>
+                    <Radio value="send_remote_fund">Send Remote Fund</Radio>
+                  </Stack>
+                </RadioGroup>
+              </FormControl>
             </Stack>
             <Stack>
-              <FormLabel fontSize={"1.5rem"}>Select Chain</FormLabel>
-              <RadioGroup
-                aria-required
-                colorScheme={"green"}
-                name="chainId"
-                size={"lg"}
-              >
-                <Stack spacing={4} direction="row">
-                  {DAO_LIST[daoId as keyof typeof DAO_LIST].chains.map(
-                    (chainId) => {
-                      return <Radio value={chainId}>{chainId}</Radio>;
-                    }
-                  )}
-                </Stack>
-              </RadioGroup>
+              <FormControl isInvalid={!chains.length}>
+                <FormLabel fontSize={"1.5rem"}>Select Chain</FormLabel>
+                <CheckboxGroup colorScheme="green" onChange={onChangeChain}>
+                  <Stack spacing={[1, 5]} direction={["column", "row"]}>
+                    {DAO_LIST[daoId as keyof typeof DAO_LIST].chains.map(
+                      (chainId) => {
+                        return <Checkbox value={chainId}>{chainId}</Checkbox>;
+                      }
+                    )}
+                  </Stack>
+                </CheckboxGroup>
+                {chains.length ? (
+                  <FormHelperText textAlign={"left"}>
+                    Select at least one chain
+                  </FormHelperText>
+                ) : (
+                  <FormErrorMessage>Select at least one chain</FormErrorMessage>
+                )}
+              </FormControl>
             </Stack>
             <Stack>
               <FormLabel fontSize={"1.5rem"}>Enter Amount</FormLabel>
-              <NumberInput>
-                <NumberInputField required name="amount" />
-              </NumberInput>
+              {DAO_LIST[daoId as keyof typeof DAO_LIST].chains.map(
+                (chainId, index) => {
+                  return (
+                    <NumberInput
+                      isDisabled={!chains.find((chain) => chain === chainId)}
+                    >
+                      <NumberInputField
+                        id={chainId}
+                        placeholder={
+                          CHAIN_LIST[chainId as keyof typeof CHAIN_LIST].denom
+                        }
+                        required
+                        name={`amount`}
+                      />
+                    </NumberInput>
+                  );
+                }
+              )}
             </Stack>
           </Stack>
           <Flex justifyContent={"space-between"}>
-            <ButtonGroup color={"white"}>
+            {/* <ButtonGroup color={"white"}>
               <Button
                 _hover={{
                   bg: "#164242",
@@ -119,7 +163,7 @@ const NewProposal = () => {
               >
                 Preview
               </Button>
-            </ButtonGroup>
+            </ButtonGroup> */}
             <Button
               bg={"#09a758"}
               _hover={{
