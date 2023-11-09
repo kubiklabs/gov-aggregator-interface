@@ -1,6 +1,7 @@
 {
   "gaia-test-2": {
     "denom": "uatom",
+    "symbol": "ATOM",
     "name": "Cosmos Hub",
     "apis": {
       "rest": "http://45.250.253.23:1316",
@@ -12,10 +13,11 @@
   },
   "osmo-test-4": {
     "denom": "uosmo",
+    "symbol": "OSMO",
     "name": "Osmosis",
     "apis": {
       "rest": "http://45.250.253.23:1314",
-      "rpc": "http://45.250.253.23:26657"
+      "rpc": "http://45.250.253.23:46657"
     },
     "logo_uri": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
     "coingecko_id": "osmosis",
@@ -23,6 +25,7 @@
   },
   "juno-test-3": {
     "denom": "ujuno",
+    "symbol": "JUNO",
     "name": "Juno",
     "apis": {
       "rest": "http://45.250.253.23:1315",
@@ -34,10 +37,11 @@
   },
   "neutron-test-1": {
     "denom": "untrn",
+    "symbol": "NTRN",
     "name": "Neutron",
     "apis": {
       "rest": "http://45.250.253.23:1317",
-      "rpc": "http://45.250.253.23:46657"
+      "rpc": "http://45.250.253.23:26657"
     },
     "logo_uri": "",
     "coingecko_id": "neutron-3",

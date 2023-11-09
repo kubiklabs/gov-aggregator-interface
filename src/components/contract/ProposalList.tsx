@@ -50,6 +50,9 @@ const ProposalList = ({ proposals }: { proposals: ILpCardProps[] }) => {
                 navigate(`${pathName}/proposal/${proposal.id}`);
               }}
               cursor={"pointer"}
+              _hover={{
+                bg: "#ffffff20",
+              }}
               // maxWidth={"300px"}
             >
               <Flex

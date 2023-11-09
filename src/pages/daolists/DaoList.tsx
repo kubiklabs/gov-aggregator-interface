@@ -23,6 +23,9 @@ const DaoList = () => {
               maxW={"400px"}
               p={"20px"}
               cursor={"pointer"}
+              _hover={{
+                bg: "#ffffff20",
+              }}
             >
               <Stack
                 justifyContent={"space-between"}

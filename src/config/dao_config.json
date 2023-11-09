@@ -16,11 +16,11 @@
   "2": {
     "name": "Hub & Osmosis",
     "description": "DAO for Cosmos Hub and Osmosis",
-    "chains": ["gaia-test-2", "osmo-test-5"],
-    "core_module": "neutron15608kvpuz7a0cddcn4jp560yk0uwyjgys5hx8slare56wfdcaseslsrp4j",
+    "chains": ["gaia-test-2", "osmo-test-4"],
+    "core_module": "neutron1wpqx4mhe5hmgte8s4etam4syfxjt83zwvejhgsmcludfpt5hd6kquxtjd3",
     "voting_module": "",
-    "single_proposal": "neutron1xnl29l92rt8y76fqvukz8al373h4ld3wwn58g6m0tazgwzgcp7mq72apls",
-    "ica-helper": "neutron1hn54qrgnud8fn3ve5eelg9x29lp9fm6t8um5hp2t4fgzuw6tmdpqxeuw9x",
+    "single_proposal": "neutron1kg8uzrhqnjp0a4rp6c6wtnl3y4prth7v54h5gwnkwgtn82yealxsekesg2",
+    "ica-helper": "neutron1pggva37n3yr92stjc4vquvsl4dulgm7z34ja24e23t5nck3ezjpqm5u530",
     "chain-logo-uris": [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png"
@@ -29,11 +29,11 @@
   "3": {
     "name": "CosmWasm DAO",
     "description": "DAO for all CosmWasm enabled chains, Osmosis and Juno",
-    "chains": ["osmo-test-1", "juno-test-3"],
-    "core_module": "neutron1wpqx4mhe5hmgte8s4etam4syfxjt83zwvejhgsmcludfpt5hd6kquxtjd3",
+    "chains": ["osmo-test-4", "juno-test-3"],
+    "core_module": "neutron15608kvpuz7a0cddcn4jp560yk0uwyjgys5hx8slare56wfdcaseslsrp4j",
     "voting_module": "",
-    "single_proposal": "neutron1kg8uzrhqnjp0a4rp6c6wtnl3y4prth7v54h5gwnkwgtn82yealxsekesg2",
-    "ica-helper": "neutron1pggva37n3yr92stjc4vquvsl4dulgm7z34ja24e23t5nck3ezjpqm5u530",
+    "single_proposal": "neutron1xnl29l92rt8y76fqvukz8al373h4ld3wwn58g6m0tazgwzgcp7mq72apls",
+    "ica-helper": "neutron1hn54qrgnud8fn3ve5eelg9x29lp9fm6t8um5hp2t4fgzuw6tmdpqxeuw9x",
     "chain-logo-uris": [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.png"

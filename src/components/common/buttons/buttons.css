@@ -22,7 +22,11 @@
 }
 .nav-link-button__active {
   /* background-color: var(--accent-color-1); */
-  background: linear-gradient(to right, var(--gradient-left), var(--gradient-right));
+  background: linear-gradient(
+    to right,
+    var(--gradient-left),
+    var(--gradient-right)
+  );
   border-radius: var(--standard-radius);
   /* color: var(--primary-font-color); */
 }
@@ -37,6 +41,8 @@
 /* Connect wallet button styles */
 
 .connect-wallet-container {
+  justify-content: center;
+  align-items: center;
   color: var(--primary-font-color);
   background-color: var(--accent-color-1);
   /* width: 280px; */
@@ -44,11 +50,11 @@
   margin: 0 auto;
   display: flex;
   /* flex-direction: column; */
-  border-radius: var(--standard-radius);
-  /* padding: 5px 0; */
+  border-radius: 5px;
+  /* padding: 5px; */
 }
 
-.disconnected{
+.disconnected {
   width: 153px;
   display: flex;
   align-items: center;
@@ -146,10 +152,10 @@
   transform: rotate(-10deg);
 }
 
-.mid-wall{
+.mid-wall {
   margin: 0px 10px;
 }
-.column-gap{
+.column-gap {
   display: flex;
   align-items: center;
   justify-content: center;

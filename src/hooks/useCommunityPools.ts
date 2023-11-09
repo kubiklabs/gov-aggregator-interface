@@ -15,7 +15,7 @@ export interface IParsedPoolInfo {
 
 const useCommunityPools = () => {
   const getParsedPoolInfo = async (chainId: string) => {
-    const { name, denom, coingecko_id, apis, logo_uri } =
+    const { name, denom, coingecko_id, apis, logo_uri, symbol } =
       CHAIN_DATA[chainId as keyof typeof CHAIN_DATA];
     try {
       const price = (
@@ -31,7 +31,7 @@ const useCommunityPools = () => {
       // console.log(amount, coinConvert(parseInt(amount), 6, "human"));
       const parsedPoolInfo: IParsedPoolInfo = {
         name: name,
-        denom: denom,
+        denom: symbol,
         tokens: coinConvert(parseInt(amount), 6, "human"),
         totalFund: Number(coinConvert(parseInt(amount), 6, "human")) * price,
         logo_uri,

@@ -224,13 +224,14 @@ label.checked svg.moon {
   display: flex;
   color: var(--primary-font-color);
   gap: 10px;
+  border-radius: 5px;
 }
 
 .poolSort {
   align-items: center;
   background-color: var(--accent-color-1);
   border: 2px solid transparent;
-  border-radius: var(--standard-radius);
+  /* border-radius: var(--standard-radius); */
   color: var(--primary-font-color);
   height: 2.5rem;
   justify-content: center;

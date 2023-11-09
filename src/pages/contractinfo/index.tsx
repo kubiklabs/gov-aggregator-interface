@@ -18,9 +18,11 @@ const ContractInfo = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [proposals, setProposals] = useState<any>();
+  const [assets, setAssets] = useState<any>();
+
   const [poolInfoList, setPoolInfoList] = useState<IParsedPoolInfo[]>([]);
   const { getNeutronProposalsList } = useNeutronGovQuery(daoId as string);
-  const { getAllBalances } = useAssets(daoId as string);
+  const { getAllBalances, getParsedAssets } = useAssets(daoId as string);
   const { getParsedPoolList } = useCommunityPools();
 
   useEffect(() => {
@@ -28,13 +30,13 @@ const ContractInfo = () => {
   }, [daoId]);
 
   const fetchData = async () => {
-    getAllBalances();
     setIsLoading(true);
     const data = await getNeutronProposalsList();
     setProposals(data);
     const poolList = await getParsedPoolList(chains);
-    console.log(poolList);
     setPoolInfoList(poolList);
+    const assetList = await getParsedAssets();
+    setAssets(assetList);
     setIsLoading(false);
   };
 
@@ -48,7 +50,7 @@ const ContractInfo = () => {
         <>
           {poolInfoList?.length ? <PoolList pools={poolInfoList} /> : null}
           {proposals?.length ? <ProposalList proposals={proposals} /> : null}
-          <Treasury />
+          {assets?.length ? <Treasury assetList={assets} /> : null}
         </>
       )}
     </Stack>

@@ -45,15 +45,12 @@ import SubtitleText from "../common/DataDisplay/SubtitleText";
 const PoolList = ({ pools }: { pools: IParsedPoolInfo[] }) => {
   return (
     <Section heading="Community Pools">
-      <Grid
-        gap={"20px"}
-        gridTemplateColumns={"repeat(auto-fit, minmax(300px, 1fr))"}
-      >
+      <Stack direction={"row"} flexWrap={"wrap"}>
         {pools.map((pool) => {
           const { denom, name, tokens, totalFund, logo_uri } = pool;
 
           return (
-            <Card minW={"250px"}>
+            <Card flex={"1"} maxW={"500px"} minW={"300px"}>
               <Stack>
                 <Box height={"200px"} width={"100%"} overflow={"hidden"}>
                   <Image
@@ -66,7 +63,7 @@ const PoolList = ({ pools }: { pools: IParsedPoolInfo[] }) => {
                   />
                 </Box>
                 <Stack p={"25px"}>
-                  <Text size={"1.5rem"}>{name}</Text>
+                  <Text fontSize={"1.5rem"}>{name}</Text>
                   <Stack>
                     <Flex justifyContent={"space-between"}>
                       <Text>Pool Fund</Text>
@@ -75,8 +72,8 @@ const PoolList = ({ pools }: { pools: IParsedPoolInfo[] }) => {
                     <Flex justifyContent={"space-between"}>
                       <Text>Token Balance</Text>
                       <Flex gap={"10px"}>
-                        <Text>{Number(tokens).toLocaleString()} </Text>
                         <SubtitleText>{denom}</SubtitleText>
+                        <Text>{Number(tokens).toLocaleString()} </Text>
                       </Flex>
                     </Flex>
                     {/* <Flex justifyContent={"space-between"}>
@@ -89,7 +86,7 @@ const PoolList = ({ pools }: { pools: IParsedPoolInfo[] }) => {
             </Card>
           );
         })}
-      </Grid>{" "}
+      </Stack>
     </Section>
   );
 };
