@@ -125,26 +125,61 @@ export const useNeutronGovTxn = (daoId: string) => {
       client = await createTxnClient();
     }
 
+    let messages: any;
+
     try {
-      const messages = chainIds.map((chainId) => {
-        const { denom, interchain_account_id } =
-          CHAIN_DATA[chainId as keyof typeof CHAIN_DATA];
-        return {
+      if (action === "spend_fund") {
+        messages = {
           custom: {
             [action]: {
-              demand_info: [
-                {
-                  chain_id: chainId,
+              funds: chainIds.map((chainId) => {
+                const { ibcDenom } =
+                  CHAIN_DATA[chainId as keyof typeof CHAIN_DATA];
+                return {
                   amount: amounts.find((i: any) => i.chainId === chainId)
                     .amount,
-                  denom,
-                  interchain_account_id,
-                },
-              ],
+                  denom: ibcDenom,
+                };
+              }),
             },
           },
         };
-      });
+      } else {
+        messages = chainIds.map((chainId) => {
+          const { denom, interchain_account_id, ibcDenom } =
+            CHAIN_DATA[chainId as keyof typeof CHAIN_DATA];
+          // if (action === "spend_fund") {
+          //   return {
+          //     custom: {
+          //       [action]: {
+          //         funds: [
+          //           {
+          //             amount: amounts.find((i: any) => i.chainId === chainId)
+          //               .amount,
+          //             denom: ibcDenom,
+          //           },
+          //         ],
+          //       },
+          //     },
+          //   };
+          // }
+          return {
+            custom: {
+              [action]: {
+                demand_info: [
+                  {
+                    chain_id: chainId,
+                    amount: amounts.find((i: any) => i.chainId === chainId)
+                      .amount,
+                    denom,
+                    interchain_account_id,
+                  },
+                ],
+              },
+            },
+          };
+        });
+      }
       console.log(messages);
 
       if (!client) return;

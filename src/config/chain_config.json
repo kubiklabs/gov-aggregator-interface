@@ -1,6 +1,7 @@
 {
   "gaia-test-2": {
     "denom": "uatom",
+    "ibcDenom": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
     "symbol": "ATOM",
     "name": "Cosmos Hub",
     "apis": {
@@ -14,6 +15,7 @@
   },
   "osmosis-test-4": {
     "denom": "uosmo",
+    "ibcDenom": "ibc/13B2C536BB057AC79D5616B8EA1B9540EC1F2170718CAFF6F0083C966FFFED0B",
     "symbol": "OSMO",
     "name": "Osmosis",
     "apis": {
@@ -27,6 +29,7 @@
   },
   "juno-test-3": {
     "denom": "ujuno",
+    "ibcDenom": "ibc/EFF323CC632EC4F747C61BCE238A758EFDB7699C3226565F7C20DA06509D59A5",
     "symbol": "JUNO",
     "name": "Juno",
     "apis": {
@@ -40,6 +43,7 @@
   },
   "neutron-test-1": {
     "denom": "untrn",
+    "ibcDenom": "",
     "symbol": "NTRN",
     "name": "Neutron",
     "apis": {

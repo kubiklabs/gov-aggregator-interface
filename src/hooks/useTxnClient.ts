@@ -49,6 +49,8 @@ export const useConnectWallet = () => {
   const baseDenom = networkConstants[network].baseDenom;
   const chainId = chainInfo.getChainId();
   const rpcUrl = chainInfo.getRpcUrl();
+  console.log(chainId, rpcUrl);
+
   // const toaster = useMessageToaster();
 
   return async () => {
@@ -83,7 +85,8 @@ export const useConnectWallet = () => {
         offlineSigner
       );
 
-      const balance = await wasmChainClient.getBalance(address, baseDenom);
+      const balance = await wasmChainClient.getBalance(address, "untrn");
+      console.log(balance);
 
       const walletName = await (window as any).keplr.getKey(chainId);
 

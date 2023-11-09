@@ -93,9 +93,9 @@ const NewProposal = () => {
                   id="action"
                 >
                   <Stack spacing={4} direction="row">
-                    <Radio value="propose_fund">Propose Fund</Radio>
+                    <Radio value="propose_funds">Propose Funds</Radio>
                     <Radio value="bring_remote_fund">Bring Remote Fund</Radio>
-                    <Radio value="send_remote_fund">Send Remote Fund</Radio>
+                    <Radio value="spend_fund">Spend Fund</Radio>
                   </Stack>
                 </RadioGroup>
               </FormControl>
