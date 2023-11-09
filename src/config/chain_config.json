@@ -9,9 +9,10 @@
     },
     "logo_uri": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
     "coingecko_id": "cosmos",
-    "interchain_account_id": "remote_account_atom"
+    "interchain_account_id": "remote_account_atom",
+    "price": 8.88
   },
-  "osmo-test-4": {
+  "osmosis-test-4": {
     "denom": "uosmo",
     "symbol": "OSMO",
     "name": "Osmosis",
@@ -21,7 +22,8 @@
     },
     "logo_uri": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
     "coingecko_id": "osmosis",
-    "interchain_account_id": "remote_account_osmo"
+    "interchain_account_id": "remote_account_osmo",
+    "price": 0.530548
   },
   "juno-test-3": {
     "denom": "ujuno",
@@ -33,7 +35,8 @@
     },
     "logo_uri": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.png",
     "coingecko_id": "juno-network",
-    "interchain_account_id": "remote_account_juno"
+    "interchain_account_id": "remote_account_juno",
+    "price": 0.534244
   },
   "neutron-test-1": {
     "denom": "untrn",
@@ -45,6 +48,7 @@
     },
     "logo_uri": "",
     "coingecko_id": "neutron-3",
-    "interchain_account_id": ""
+    "interchain_account_id": "",
+    "price": 0
   }
 }

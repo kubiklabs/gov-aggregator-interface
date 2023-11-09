@@ -46,11 +46,11 @@ const PoolList = ({ pools }: { pools: IParsedPoolInfo[] }) => {
   return (
     <Section heading="Community Pools">
       <Stack gap={"25px"} direction={"row"} flexWrap={"wrap"}>
-        {pools.map((pool) => {
+        {pools?.map((pool) => {
           const { denom, name, tokens, totalFund, logo_uri } = pool;
 
           return (
-            <Card flex={"1"} maxW={"500px"} minW={"300px"}>
+            <Card flex={"1"} width={"30%"} maxW={"500px"} minW={"300px"}>
               <Stack>
                 <Box height={"200px"} width={"100%"} overflow={"hidden"}>
                   <Image

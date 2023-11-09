@@ -43,61 +43,67 @@ const ProposalList = ({ proposals }: { proposals: ILpCardProps[] }) => {
         </Button>
       </Link>
       <Stack>
-        {proposals.map((proposal) => {
-          return (
-            <Card
-              onClick={() => {
-                navigate(`${pathName}/proposal/${proposal.id}`);
-              }}
-              cursor={"pointer"}
-              _hover={{
-                bg: "#ffffff20",
-              }}
-              // maxWidth={"300px"}
-            >
-              <Flex
-                justifyContent={"space-between"}
-                width={"100%"}
-                alignItems={"center"}
-                padding={"35px"}
+        {!proposals?.length ? (
+          <Card fontSize={"1.3rem"} p="20px" minW={"300px"}>
+            There are no proposal!
+          </Card>
+        ) : (
+          proposals.map((proposal) => {
+            return (
+              <Card
+                onClick={() => {
+                  navigate(`${pathName}/proposal/${proposal.id}`);
+                }}
+                cursor={"pointer"}
+                _hover={{
+                  bg: "#ffffff20",
+                }}
+                // maxWidth={"300px"}
               >
                 <Flex
-                  gap={"25px"}
-                  alignItems={"center"}
                   justifyContent={"space-between"}
+                  width={"100%"}
+                  alignItems={"center"}
+                  padding={"35px"}
                 >
-                  <Text>#{proposal.id}</Text>
-                  <Button
-                    color={"white"}
-                    bg={"transparent"}
-                    border={"1px solid"}
-                    borderColor={
-                      neutronStatusMap[
-                        proposal.status as keyof typeof neutronStatusMap
-                      ].bg
-                    }
-                    _hover={{
-                      border: `1px solid white`,
-                    }}
-                    height={"40px"}
-                    width={"150px"}
+                  <Flex
+                    gap={"25px"}
+                    alignItems={"center"}
+                    justifyContent={"space-between"}
                   >
-                    {proposal.status}
-                  </Button>
-                  <Text>{proposal.title}</Text>
-                </Flex>
-                <SubtitleText>
-                  {proposal.endDate} {proposal.endTime}
-                </SubtitleText>
-                {/* <Flex gap={"10px"} flexWrap={"wrap"}>
+                    <Text>#{proposal.id}</Text>
+                    <Button
+                      color={"white"}
+                      bg={"transparent"}
+                      border={"1px solid"}
+                      borderColor={
+                        neutronStatusMap[
+                          proposal.status as keyof typeof neutronStatusMap
+                        ].bg
+                      }
+                      _hover={{
+                        border: `1px solid white`,
+                      }}
+                      height={"40px"}
+                      width={"150px"}
+                    >
+                      {proposal.status}
+                    </Button>
+                    <Text>{proposal.title}</Text>
+                  </Flex>
+                  <SubtitleText>
+                    {proposal.endDate} {proposal.endTime}
+                  </SubtitleText>
+                  {/* <Flex gap={"10px"} flexWrap={"wrap"}>
                     {proposal.tags.map((tag: string) => {
                       return <ColorTag bgColor="purple" content={tag} />;
                     })}
                   </Flex> */}
-              </Flex>
-            </Card>
-          );
-        })}
+                </Flex>
+              </Card>
+            );
+          })
+        )}
       </Stack>
     </Section>
   );

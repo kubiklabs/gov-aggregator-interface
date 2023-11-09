@@ -33,13 +33,13 @@ export const useAssets = (daoId: string) => {
     try {
       const balances = await getAllBalances();
       for (const i in balances) {
-        const { name, coingecko_id, decimals, denom, icon, symbol } =
+        const { name, coingecko_id, decimals, denom, icon, symbol, price } =
           ASSET_DATA[balances[Number(i)].denom as keyof typeof ASSET_DATA];
-        const price = (
-          await axios.get(
-            `https://api.coingecko.com/api/v3/simple/price?ids=${coingecko_id}&vs_currencies=usd`
-          )
-        ).data[coingecko_id].usd;
+        // const price = (
+        //   await axios.get(
+        //     `https://api.coingecko.com/api/v3/simple/price?ids=${coingecko_id}&vs_currencies=usd`
+        //   )
+        // ).data[coingecko_id].usd;
 
         const parsedBalance = {
           name,

@@ -49,8 +49,8 @@ const ContractInfo = () => {
       ) : (
         <>
           {poolInfoList?.length ? <PoolList pools={poolInfoList} /> : null}
-          {proposals?.length ? <ProposalList proposals={proposals} /> : null}
-          {assets?.length ? <Treasury assetList={assets} /> : null}
+          {<ProposalList proposals={proposals} />}
+          {<Treasury assetList={assets} />}
         </>
       )}
     </Stack>

@@ -15,14 +15,14 @@ export interface IParsedPoolInfo {
 
 const useCommunityPools = () => {
   const getParsedPoolInfo = async (chainId: string) => {
-    const { name, denom, coingecko_id, apis, logo_uri, symbol } =
+    const { name, denom, coingecko_id, apis, logo_uri, symbol, price } =
       CHAIN_DATA[chainId as keyof typeof CHAIN_DATA];
     try {
-      const price = (
-        await axios.get(
-          `https://api.coingecko.com/api/v3/simple/price?ids=${coingecko_id}&vs_currencies=usd`
-        )
-      ).data[coingecko_id].usd;
+      // const price = (
+      //   await axios.get(
+      //     `https://api.coingecko.com/api/v3/simple/price?ids=${coingecko_id}&vs_currencies=usd`
+      //   )
+      // ).data[coingecko_id].usd;
       const amount = (
         await axios.get(
           `${apis.rest}/cosmos/distribution/v1beta1/community_pool`

@@ -6,7 +6,8 @@
     "token": "ibc/13B2C536BB057AC79D5616B8EA1B9540EC1F2170718CAFF6F0083C966FFFED0B",
     "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
     "decimals": 6,
-    "coingecko_id": "osmosis"
+    "coingecko_id": "osmosis",
+    "price": 0.530548
   },
   "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2": {
     "name": "Cosmos Hub",
@@ -15,7 +16,8 @@
     "token": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
     "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
     "decimals": 6,
-    "coingecko_id": "cosmos"
+    "coingecko_id": "cosmos",
+    "price": 8.88
   },
   "ibc/EFF323CC632EC4F747C61BCE238A758EFDB7699C3226565F7C20DA06509D59A5": {
     "name": "Juno",
@@ -24,6 +26,7 @@
     "token": "ibc/EFF323CC632EC4F747C61BCE238A758EFDB7699C3226565F7C20DA06509D59A5",
     "icon": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.png",
     "decimals": 6,
-    "coingecko_id": "juno-network"
+    "coingecko_id": "juno-network",
+    "price": 0.534244
   }
 }
