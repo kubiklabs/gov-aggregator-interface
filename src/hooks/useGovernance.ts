@@ -28,9 +28,8 @@ export const useGovernance = (daoId: string) => {
   //   useStrideGovQuery();
   // const { sendCosmosVote, getCosmosAddressSigner } = useCosmosGovTxn();
   // const { sendStrideVote, getStrideAddressSigner } = useStrideGovTxn();
-  const { sendNeutronVote, addNeutronProposal } = useNeutronGovTxn(
-    daoId as string
-  );
+  const { sendNeutronVote, addNeutronProposal, executeProposal } =
+    useNeutronGovTxn(daoId as string);
 
   const fetchAllUserVp = async () => {
     if (!isLoggedIn) return;
@@ -82,6 +81,10 @@ export const useGovernance = (daoId: string) => {
 
     await addNeutronProposal(title, description, action, chainIds, amounts);
   };
+
+  const executeGovProposal = async (proposalId: string) => {
+    await executeProposal(proposalId);
+  };
   return {
     fetchProposalByIdAndName,
     // fetchTotalBondedToken,
@@ -90,5 +93,6 @@ export const useGovernance = (daoId: string) => {
     fetchUserVote,
     fetchAllUserVp,
     addGovProposal,
+    executeGovProposal,
   };
 };

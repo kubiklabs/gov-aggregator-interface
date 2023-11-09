@@ -24,7 +24,7 @@ const defaultFee: StdFee = {
       denom: "untrn",
     },
   ],
-  gas: "300000",
+  gas: "1000000",
 };
 
 export const useNeutronGovTxn = (daoId: string) => {
@@ -208,5 +208,28 @@ export const useNeutronGovTxn = (daoId: string) => {
     }
   };
 
-  return { sendNeutronVote, addNeutronProposal };
+  const executeProposal = async (proposalId: string) => {
+    let client = txnClient;
+    if (!client) {
+      client = await createTxnClient();
+    }
+
+    try {
+      if (!client) return;
+      const { transactionHash } = await client.execute(
+        address as string,
+        single_proposal,
+        {
+          execute: {
+            proposal_id: Number(proposalId),
+          },
+        },
+        defaultFee
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return { sendNeutronVote, addNeutronProposal, executeProposal };
 };
