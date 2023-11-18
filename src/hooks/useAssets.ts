@@ -12,7 +12,7 @@ export const useAssets = (daoId: string) => {
   const [stargateClient, setStargateClient] = useState<StargateClient>();
 
   const createStargateClient = async () => {
-    const stClient = await StargateClient.connect("http://45.250.253.23:26657");
+    const stClient = await StargateClient.connect("https://neutron-remotenet-rpc.kubiklabs.xyz");
     setStargateClient(stClient);
     return stClient;
   };

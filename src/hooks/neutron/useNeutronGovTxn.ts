@@ -50,7 +50,7 @@ export const useNeutronGovTxn = (daoId: string) => {
         window as any
       ).keplr.getOfflineSignerOnlyAmino("neutron-test-1");
       const client = await SigningCosmWasmClient.connectWithSigner(
-        "http://45.250.253.23:26657",
+        "https://neutron-remotenet-rpc.kubiklabs.xyz",
         offlineSigner
       );
       return client;

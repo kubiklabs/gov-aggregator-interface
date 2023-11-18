@@ -23,7 +23,7 @@ export const useNeutronGovQuery = (daoId: string) => {
 
   const createQueryClient = async () => {
     const queryClient = await CosmWasmClient.connect(
-      "http://45.250.253.23:26657"
+      "https://neutron-remotenet-rpc.kubiklabs.xyz"
     );
     setQueryClient(queryClient);
     return queryClient;
