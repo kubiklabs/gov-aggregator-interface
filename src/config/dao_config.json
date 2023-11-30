@@ -3,10 +3,10 @@
     "name": "Common DAO",
     "description": "One DAO for all the connected chains, Cosmos Hub, Osmosis and Juno",
     "chains": ["gaia-test-2", "osmosis-test-4", "juno-test-3"],
-    "core_module": "neutron1zl6tmh5s4kf0h7k4chkxu2g5x0y5xlw7ylrd7mh7zu28a9jmln3qnstm8w",
+    "core_module": "neutron13tlmqp99yfpu2lsfchvvm45apjkx28kdrhewqdh8zlzantmmqkmsczvh0r",
     "voting_module": "",
-    "single_proposal": "neutron1w2tythwkgxjc3v537jup59u7ygxcfcnxwu095d255dddljcyr6nsm23uuy",
-    "ica-helper": "neutron1gzlx5hvujujhkmm3umtg7jc5vdtp2cttzmg0e5aruzfd3aszs2xsgddsut",
+    "single_proposal": "neutron1tu6fgr5d7c0y2j6f2re36p52ztclf0szx29u248e09z4vwskz3psny3ark",
+    "ica-helper": "neutron1ns23zw3f8cwasmashq4g90a58qwxs8u46jz9uxxt7gwa9ngcy4ts3n0skh",
     "chain-logo-uris": [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
@@ -17,10 +17,10 @@
     "name": "Hub & Osmosis",
     "description": "DAO for Cosmos Hub and Osmosis",
     "chains": ["gaia-test-2", "osmosis-test-4"],
-    "core_module": "neutron1p5pe3f6d772032qjdfgudjknrf9rrqcfufgl0q0lc64a98q0trls0p07ra",
+    "core_module": "neutron1eu70kcgh0d2rlm0n88dgtry9wpqnerf5n2fdzt5sxm6d3vrqq3xql70j0q",
     "voting_module": "",
-    "single_proposal": "neutron1hcytuhea3kf0f9ygm9rvf4vuwn286w8auk6tjrn8clc8gx73jfpq43pmzn",
-    "ica-helper": "neutron1tq55myhl4w6jkvve4tfq2a5nkupp7k4h5emqpq5gwvzk0v3j3hvqv4rsf5",
+    "single_proposal": "neutron1tcxreu7tnaxfnlj8w2qrr3m4d8utpm9rlytvcaw0cavuk2ll86qqwtcd9r",
+    "ica-helper": "neutron1wkyny8tz9sw2mx36fw3ynydypphp4u7vtnmart7qtydqawg00axq2078ka",
     "chain-logo-uris": [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.png",
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png"
@@ -30,10 +30,10 @@
     "name": "CosmWasm DAO",
     "description": "DAO for all CosmWasm enabled chains, Osmosis and Juno",
     "chains": ["osmosis-test-4", "juno-test-3"],
-    "core_module": "neutron179vmpz4dq62zvcrdlvw4ldcy7tveknnneqgt0p5txfr5grd0w3xsat4jm0",
+    "core_module": "neutron122gp35n4dtjsp6rtlj3sp8fyn0la3esnhmgwzryc0xdvysrs44tql5yu95",
     "voting_module": "",
-    "single_proposal": "neutron1uj9dm5xdm34fy5xwd84lfakarcnlpxw0ppgy7vpsruj0vtks29cqh5s4yv",
-    "ica-helper": "neutron1x6dzwwysu8usvnnfn0vde43ksfj4sggy4s5yf9fe28jkecuzd3psk9n3s8",
+    "single_proposal": "neutron19yz0he3nvmymdenr6z2derque94lkqgurzfa6dueprnckjpcdhdsx69czd",
+    "ica-helper": "neutron168rv3kx2ythwcdjxjaskw8v6cwpgze2z8vtgx9farmf6zj3ulwmqzdq6ur",
     "chain-logo-uris": [
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png",
       "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.png"
